@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宝塔面板安全设置：装完必须先做的几件事 | 王经理</title>
+<meta name="description" content="宝塔面板装完默认方便优先而非安全优先。改面板端口和入口、换强密码开两步验证、收敛公网端口、设置登录失败锁定、删默认站点收目录权限，这几件事十来分钟就能做完。有个客户面板8888端口开着、密码是admin123456，一晚上几百次登录尝试，后来站点被挂博彩跳转。面板是服务器的大门，装完先把这几件事做完，能省掉大半麻烦。">
+<link rel="canonical" href="https://wangmanager.com/server-security/server-baota-setup/">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<link rel="alternate" hreflang="zh-CN" href="https://wangmanager.com/server-security/server-baota-setup/">
+<link rel="alternate" hreflang="x-default" href="https://wangmanager.com/server-security/server-baota-setup/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="王经理 · 定制开发">
+<meta property="og:title" content="宝塔面板安全设置：装完必须先做的几件事 | 王经理">
+<meta property="og:description" content="宝塔面板装完默认方便优先而非安全优先。改面板端口和入口、换强密码开两步验证、收敛公网端口、设置登录失败锁定、删默认站点收目录权限，这几件事十来分钟就能做完。有个客户面板8888端口开着、密码是admin123456，一晚上几百次登录尝试，后来站点被挂博彩跳转。面板是服务器的大门，装完先把这几件事做完，能省掉大半麻烦。">
+<meta property="og:url" content="https://wangmanager.com/server-security/server-baota-setup/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://wangmanager.com/media/server-security/server-baota-setup.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="754">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="宝塔面板安全设置：装完必须先做的几件事 | 王经理">
+<meta name="twitter:description" content="宝塔面板装完默认方便优先而非安全优先。改面板端口和入口、换强密码开两步验证、收敛公网端口、设置登录失败锁定、删默认站点收目录权限，这几件事十来分钟就能做完。有个客户面板8888端口开着、密码是admin123456，一晚上几百次登录尝试，后来站点被挂博彩跳转。面板是服务器的大门，装完先把这几件事做完，能省掉大半麻烦。">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="icon" type="image/svg+xml" href="/media/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32.png">
+<link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
+<meta property="article:published_time" content="2026-11-20T09:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-25T02:06:48.287Z">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://wangmanager.com/#person","name":"王经理","jobTitle":"15 年程序员 · 定制开发服务商","description":"王经理，15 年程序员，主营 WordPress 外贸网站、AI 应用与企业知识库定制开发，同时撰写「王经理讲GEO」专栏，讲中小企业怎么让 AI 读懂自己的品牌。"},{"@type":"Organization","@id":"https://wangmanager.com/#organization","name":"王经理 · 定制开发","url":"https://wangmanager.com/","email":"827332186@qq.com","founder":{"@id":"https://wangmanager.com/#person"},"knowsAbout":["WordPress 外贸网站定制开发","AI 应用定制开发","企业 AI 知识库搭建","GEO 与 AI 搜索优化","网站与 AI 系统运维优化","服务器运维与网站安全加固"]},{"@type":"Service","@id":"https://wangmanager.com/#service-1","name":"WordPress 外贸网站定制开发","description":"15 年经验，围绕产品展示、用户信任、询盘转化和后期运营，打造稳定、安全、易维护的外贸网站。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"WordPress 外贸网站定制开发","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-2","name":"AI 应用定制开发","description":"结合企业现有网站、产品资料和业务流程，开发可落地的 AI 应用，不做只能演示的概念品。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"AI 应用定制开发","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-3","name":"企业 AI 知识库搭建","description":"把分散的产品手册、技术文档和 FAQ 整理成结构清晰、可检索、可回答的知识库，并接入 AI 助手。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"企业 AI 知识库搭建","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-4","name":"GEO 与 AI 搜索优化","description":"让企业真实、权威、结构清晰的信息更容易被 AI 理解和引用——不承诺“保证被 AI 推荐”。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"GEO 与 AI 搜索优化","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-5","name":"网站与 AI 系统运维优化","description":"应用与内容层运维：程序更新、AI 问答与知识库维护、故障处理和数据备份。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"网站与 AI 系统运维优化","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-6","name":"服务器运维与网站安全加固","description":"从服务器环境搭建、宝塔面板运维，到宕机排查、防火墙加固、AI 爬虫策略与性能调优——让网站的底座稳、安全、快。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"服务器运维与网站安全加固","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"WebSite","@id":"https://wangmanager.com/#website","url":"https://wangmanager.com/","name":"王经理 · 定制开发","description":"WordPress 外贸站、SEO 优化、静态独立站、GEO 品牌知识库一站式定制开发，15 年程序员按需求交付，让企业在搜索引擎和 AI 回答里被找到、被推荐。","publisher":{"@id":"https://wangmanager.com/#organization"},"inLanguage":["zh-CN"]},{"@type":"WebPage","@id":"https://wangmanager.com/server-security/server-baota-setup/","url":"https://wangmanager.com/server-security/server-baota-setup/","name":"宝塔面板安全设置：装完必须先做的几件事 | 王经理","description":"宝塔面板装完默认方便优先而非安全优先。改面板端口和入口、换强密码开两步验证、收敛公网端口、设置登录失败锁定、删默认站点收目录权限，这几件事十来分钟就能做完。有个客户面板8888端口开着、密码是admin123456，一晚上几百次登录尝试，后来站点被挂博彩跳转。面板是服务器的大门，装完先把这几件事做完，能省掉大半麻烦。","isPartOf":{"@id":"https://wangmanager.com/#website"},"inLanguage":"zh-CN"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://wangmanager.com/"},{"@type":"ListItem","position":2,"name":"服务器与安全","item":"https://wangmanager.com/server-security/"},{"@type":"ListItem","position":3,"name":"宝塔面板装完，先做这几件事","item":"https://wangmanager.com/server-security/server-baota-setup/"}]},{"@type":"BlogPosting","@id":"https://wangmanager.com/server-security/server-baota-setup/#article","headline":"宝塔面板装完，先做这几件事","description":"一个客户的站跳博彩，问题不在网站代码，在宝塔面板——8888端口开着，密码是admin123456。装完不做这几件事，等于把门敞开还挂张写着密码的纸条，出事后再补要大半天。","image":["https://wangmanager.com/media/server-security/server-baota-setup.svg"],"datePublished":"2026-11-20T09:00:00.000Z","dateModified":"2026-11-25T02:06:48.287Z","author":{"@type":"Person","@id":"https://wangmanager.com/#person","name":"王经理"},"publisher":{"@id":"https://wangmanager.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://wangmanager.com/server-security/server-baota-setup/"},"inLanguage":"zh-CN","url":"https://wangmanager.com/server-security/server-baota-setup/","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".prose > p:first-of-type"]}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="top-banner">
+  <div class="wrap top-banner-inner">
+    <span>帮外贸和中小企业，在 AI 时代多拿客户、多接单</span>
+  </div>
+</div>
+<header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">王</span>
+      <span class="brand-text">
+        <strong>王经理 · 定制开发</strong>
+<em>定制开发 · AI 应用 · GEO</em>      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="/">首页</a>
+        </li>
+        <li class="nav-item has-sub">
+          <a class="nav-link" href="/wordpress-development/">服务</a>
+          <ul class="subnav">
+            <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+            <li><a href="/ai-applications/">AI 应用定制开发</a></li>
+            <li><a href="/ai-knowledge-base/">企业 AI 知识库搭建</a></li>
+            <li><a href="/geo-ai-search/">GEO 与 AI 搜索优化</a></li>
+            <li><a href="/website-ai-operations/">网站与 AI 系统运维优化</a></li>
+            <li><a href="/server-ops-security/">服务器运维与网站安全加固</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/geo/">王经理讲GEO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/client-cases/">客户案例</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">关于王经理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact/">联系王经理</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      <a class="btn btn-sm" href="/contact/">聊聊需求</a>
+      <label class="nav-btn" for="nav-toggle" aria-label="打开 / 收起菜单" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </div>
+</header>
+<main id="main">
+<header class="content-head">
+  <div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol>
+    <li>
+      <a href="/">首页</a>
+    </li>
+    <li>
+      <a href="/server-security/">服务器与安全</a>
+    </li>
+    <li>
+      <span aria-current="page">宝塔面板装完，先做这几件事</span>
+    </li>
+  </ol>
+</nav>
+    <h1>宝塔面板装完，先做这几件事</h1>
+<p class="lead">一个客户的站跳博彩，问题不在网站代码，在宝塔面板——8888端口开着，密码是admin123456。装完不做这几件事，等于把门敞开还挂张写着密码的纸条，出事后再补要大半天。</p>    <div class="content-meta">
+      <span>发布于 <time datetime="2026-11-20T09:00:00.000Z">2026-11-20</time></span>
+      <span>更新于 <time datetime="2026-11-25T02:06:48.287Z">2026-11-25</time></span>
+<span>王经理</span><span>服务器与安全</span>    </div>
+  </div>
+</header>
+
+<div class="content-body">
+  <div class="wrap">
+    <figure class="cover">
+      <img src="/media/server-security/server-baota-setup.svg" alt="宝塔面板装完，先做这几件事" width="1400" height="800">
+    </figure>
+
+    <div class="prose">
+      <p>去年年底接了个急活。一个做灯具外贸的客户，网站突然跳到博彩页面，百度收录也全变了。我远程上去一看，问题不在网站代码，在宝塔面板——他装完面板就再没动过，8888端口开着，管理员密码是admin123456，登录日志里一晚上几百次尝试。</p>
+<p>宝塔这类面板好用，装完就能建站、配SSL、看日志，中小企业老板自己也能上手。问题是默认配置是「方便优先」，不是「安全优先」。装完不做几件事，等于把家门敞开，还挂了张写着密码的纸条。</p>
+<figure class="article-fig"><img src="/media/infographics/server-baota-setup.svg" alt="宝塔面板装完的安全加固流程图，从改端口入口到开两步验证逐项设置。" width="1400" height="800" loading="lazy" decoding="async"><figcaption>默认配置是方便优先，不是安全优先。</figcaption></figure>
+<p>上来先改面板入口和端口。宝塔装完会给一个随机入口和8888端口，很多人图省事就用默认的。我在日志里见过攻击者批量扫8888端口的痕迹，一天几十次。到面板设置里把端口换成一个不常用的高位端口，把入口URL也改掉，能挡掉绝大部分无脑扫描。这不是高深技术，就是把门牌号藏起来。</p>
+<p>面板最好再限一下来源IP。我自己的面板只允许办公室和家里的固定IP访问，别人就算知道端口和入口也连不上。没有固定IP的，只放行常驻城市的IP段，或者干脆只在要用的时候去安全组里临时开一下，用完关掉。有次我忘了关临时规则，面板端口对全网开了两天，日志里立刻多出几十次登录尝试，后来养成习惯用完就关。麻烦一点，但面板是服务器的大门，值得多费这一步。</p>
+<p>接着把账号密码换成硬的。用户名别用admin，密码别用生日、公司名加123。我让客户用一个他记不住、但存在密码管理器里的长密码，再开两步验证。宝塔支持绑定微信或邮箱二次验证，点几下的事。那个灯具客户就是栽在弱密码上，改完之后再没出过类似问题。</p>
+<p>然后收一收服务器端口。除了网站需要的80、443和你改过的面板端口，其他能关就关。SSH端口我一般也改掉，这个后面单独讲。云服务商的安全组和系统防火墙里都设一遍，两道门比一道稳。</p>
+<p>登录失败锁定也别忘了。宝塔自带「登录失败次数限制」，设成错五次锁一小时，再配上fail2ban自动封IP，暴力破解基本没戏。那客户的登录日志里几百次尝试，就是没人管才一直试。</p>
+<p>还有一件是检查默认站点和目录权限。装完面板常留着一个默认站点，用不上就删。网站目录给运行用户最小权限，别图省事给777——我见过有人全给777，被上传木马后到处都能写。</p>
+<p>这几件事做完，面板就从「裸奔」变成「能看门」。那个客户我把面板入口改了、密码换了、失败锁定开了，又清了<a href="/server-security/server-website-hacked/">挂马</a>代码，前后折腾大半天，花的钱比当初半小时做完这些事多得多。</p>
+<p>你要是刚装完面板不确定从哪下手，照着这几条过一遍就行。拿不准的地方来问我，我告诉你具体点哪儿。</p>
+    </div>
+
+
+
+
+
+    <section class="related">
+      <h2>继续读</h2>
+      <ul class="plain-list">
+        <li><a href="/geo-basics/what-is-geo/">什么是 GEO？用张老板的例子讲明白</a></li>
+        <li><a href="/geo-basics/what-is-brand-knowledge-base/">品牌知识库是什么？为什么比官网更重要</a></li>
+        <li><a href="/how-ai-answers/how-ai-knows-your-brand/">AI 是怎么「认识」一个品牌的？底层逻辑一次讲清</a></li>
+        <li><a href="/how-ai-answers/no-website-ai-view/">传统企业没有独立站，AI 会怎么看你？</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">王</span>
+          王经理 · 定制开发
+        </p>
+        <p class="footer-about">
+WordPress 外贸站、SEO 优化、静态独立站、GEO 品牌知识库一站式定制开发，15 年程序员按需求交付，让企业在搜索引擎和 AI 回答里被找到、被推荐。        </p>
+      </div>
+
+      <div class="footer-col">
+        <h2>快速导航</h2>
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/wordpress-development/">服务</a></li>
+          <li><a href="/geo/">王经理讲GEO</a></li>
+          <li><a href="/client-cases/">客户案例</a></li>
+          <li><a href="/about/">关于王经理</a></li>
+          <li><a href="/contact/">联系王经理</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>联系我们</h2>
+        <ul>
+<li><a href="mailto:827332186@qq.com">827332186@qq.com</a></li>        </ul>
+        <div class="footer-wechat">
+          <span class="footer-wechat-frame">
+            <img src="/media/contact/wechat-qr.png" alt="王经理微信二维码，扫码咨询网站定制、AI 应用与知识库搭建" width="72" height="72" loading="lazy">
+          </span>
+          <span class="footer-wechat-text">微信扫码添加<br>备注来意更快通过</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h2>我们的服务</h2>
+        <ul>
+          <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+          <li><a href="/ai-applications/">AI 应用定制开发</a></li>
+          <li><a href="/ai-knowledge-base/">企业 AI 知识库搭建</a></li>
+          <li><a href="/geo-ai-search/">GEO 与 AI 搜索优化</a></li>
+          <li><a href="/website-ai-operations/">网站与 AI 系统运维优化</a></li>
+          <li><a href="/server-ops-security/">服务器运维与网站安全加固</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-meta-links">
+      <a href="/sitemap.html">网站地图</a><span aria-hidden="true"> · </span><a href="/llms.txt">给 AI 的站点说明</a>
+    </p>
+    <p class="footer-copyright">© 2026 王经理 · 定制开发. 保留所有权利</p>
+  </div>
+</footer>
+<button class="to-top" type="button" aria-label="返回顶部" title="返回顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 20V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script>
+(function () {
+  var btn = document.querySelector('.to-top');
+  if (!btn) return;
+  var onScroll = function () {
+    btn.classList.toggle('is-visible', window.scrollY > 480);
+  };
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { onScroll(); ticking = false; });
+  }, { passive: true });
+  onScroll();
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>王经理讲GEO | 15 年程序员讲给中小企业听的生成式引擎优化</title>
+<meta name="description" content="GEO 是什么、为什么软文没用、AI 怎么认识品牌、知识库怎么搭——48 篇能照着做的实操文章。">
+<link rel="canonical" href="https://wangmanager.com/geo/">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<link rel="alternate" hreflang="zh-CN" href="https://wangmanager.com/geo/">
+<link rel="alternate" hreflang="x-default" href="https://wangmanager.com/geo/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="王经理 · 定制开发">
+<meta property="og:title" content="王经理讲GEO | 15 年程序员讲给中小企业听的生成式引擎优化">
+<meta property="og:description" content="GEO 是什么、为什么软文没用、AI 怎么认识品牌、知识库怎么搭——48 篇能照着做的实操文章。">
+<meta property="og:url" content="https://wangmanager.com/geo/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="/media/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="754">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="王经理讲GEO | 15 年程序员讲给中小企业听的生成式引擎优化">
+<meta name="twitter:description" content="GEO 是什么、为什么软文没用、AI 怎么认识品牌、知识库怎么搭——48 篇能照着做的实操文章。">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="icon" type="image/svg+xml" href="/media/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32.png">
+<link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
+<meta property="article:published_time" content="2026-11-22T05:52:07.111Z">
+<meta property="article:modified_time" content="2026-11-25T01:27:26.239Z">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://wangmanager.com/#person","name":"王经理","jobTitle":"15 年程序员 · 定制开发服务商","description":"王经理，15 年程序员，主营 WordPress 外贸网站、AI 应用与企业知识库定制开发，同时撰写「王经理讲GEO」专栏，讲中小企业怎么让 AI 读懂自己的品牌。"},{"@type":"Organization","@id":"https://wangmanager.com/#organization","name":"王经理 · 定制开发","url":"https://wangmanager.com/","email":"827332186@qq.com","founder":{"@id":"https://wangmanager.com/#person"},"knowsAbout":["WordPress 外贸网站定制开发","AI 应用定制开发","企业 AI 知识库搭建","GEO 与 AI 搜索优化","网站与 AI 系统运维优化","服务器运维与网站安全加固"]},{"@type":"Service","@id":"https://wangmanager.com/#service-1","name":"WordPress 外贸网站定制开发","description":"15 年经验，围绕产品展示、用户信任、询盘转化和后期运营，打造稳定、安全、易维护的外贸网站。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"WordPress 外贸网站定制开发","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-2","name":"AI 应用定制开发","description":"结合企业现有网站、产品资料和业务流程，开发可落地的 AI 应用，不做只能演示的概念品。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"AI 应用定制开发","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-3","name":"企业 AI 知识库搭建","description":"把分散的产品手册、技术文档和 FAQ 整理成结构清晰、可检索、可回答的知识库，并接入 AI 助手。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"企业 AI 知识库搭建","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-4","name":"GEO 与 AI 搜索优化","description":"让企业真实、权威、结构清晰的信息更容易被 AI 理解和引用——不承诺“保证被 AI 推荐”。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"GEO 与 AI 搜索优化","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-5","name":"网站与 AI 系统运维优化","description":"应用与内容层运维：程序更新、AI 问答与知识库维护、故障处理和数据备份。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"网站与 AI 系统运维优化","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-6","name":"服务器运维与网站安全加固","description":"从服务器环境搭建、宝塔面板运维，到宕机排查、防火墙加固、AI 爬虫策略与性能调优——让网站的底座稳、安全、快。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"服务器运维与网站安全加固","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"WebSite","@id":"https://wangmanager.com/#website","url":"https://wangmanager.com/","name":"王经理 · 定制开发","description":"WordPress 外贸站、SEO 优化、静态独立站、GEO 品牌知识库一站式定制开发，15 年程序员按需求交付，让企业在搜索引擎和 AI 回答里被找到、被推荐。","publisher":{"@id":"https://wangmanager.com/#organization"},"inLanguage":["zh-CN"]},{"@type":"WebPage","@id":"https://wangmanager.com/geo/","url":"https://wangmanager.com/geo/","name":"王经理讲GEO | 15 年程序员讲给中小企业听的生成式引擎优化","description":"GEO 是什么、为什么软文没用、AI 怎么认识品牌、知识库怎么搭——48 篇能照着做的实操文章。","isPartOf":{"@id":"https://wangmanager.com/#website"},"inLanguage":"zh-CN"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://wangmanager.com/"},{"@type":"ListItem","position":2,"name":"王经理讲GEO","item":"https://wangmanager.com/geo/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"GEO 和 SEO 有什么区别？","acceptedAnswer":{"@type":"Answer","text":"SEO 争的是搜索结果的链接位置，GEO 争的是 AI 答案里的引用和推荐。入口、逻辑、衡量方式都不同：SEO 看排名和点击，GEO 看 AI 有没有提到你、说得对不对。"}},{"@type":"Question","name":"做 GEO 能保证被 AI 推荐吗？","acceptedAnswer":{"@type":"Answer","text":"不能，任何人说能保证都不可信。能做的是把真实、权威、结构清晰的信息准备好，让 AI 有据可依——这是必要条件，不是充分条件。"}},{"@type":"Question","name":"品牌知识库怎么搭？","acceptedAnswer":{"@type":"Answer","text":"三步：盘点品牌事实（产品、案例、资质）→ 用统一的词和说法写成机器友好的页面 → 在官网与信源平台同步发布并保持一致。不用写代码，三步就能搭起来。"}},{"@type":"Question","name":"现在发软文做 GEO 还有用吗？","acceptedAnswer":{"@type":"Answer","text":"基本没用。AI 不数篇数，它数信源——要的是多个独立信源交叉印证。批量低质软文在它眼里只是一个声音，满篇自夸还会被当成营销话术直接过滤。"}},{"@type":"Question","name":"AI 是怎么认识一个品牌的？","acceptedAnswer":{"@type":"Answer","text":"AI 没有眼睛，只认识文字。它分三步：收集碎片（官网、资料、评价、报道）→ 拼出印象（统计哪些词总和你一起出现）→ 决定推荐（信息清晰且来自不同可信渠道，才敢报你的名字）。"}},{"@type":"Question","name":"中小企业做 GEO，最该先做的一件事是什么？","acceptedAnswer":{"@type":"Answer","text":"先把品牌整理成 AI 读得懂、信得过的信息底子——盘清三个问题：你是谁、你凭什么、凭什么选你。地基没打，发再多稿、投再多钱也没用。"}},{"@type":"Question","name":"做 GEO 要花多少钱？","acceptedAnswer":{"@type":"Answer","text":"三种花法：铺量式发稿（AI 只认信源，大概率打水漂）、投放式买广告（流量买得到，但客户已经转向问 AI）、基建式搭知识库（一次性地基投入，成本比想象中低）。建议先做一次 AI 可见度诊断，再决定投入方式。"}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="top-banner">
+  <div class="wrap top-banner-inner">
+    <span>帮外贸和中小企业，在 AI 时代多拿客户、多接单</span>
+  </div>
+</div>
+<header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">王</span>
+      <span class="brand-text">
+        <strong>王经理 · 定制开发</strong>
+<em>定制开发 · AI 应用 · GEO</em>      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="/">首页</a>
+        </li>
+        <li class="nav-item has-sub">
+          <a class="nav-link" href="/wordpress-development/">服务</a>
+          <ul class="subnav">
+            <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+            <li><a href="/ai-applications/">AI 应用定制开发</a></li>
+            <li><a href="/ai-knowledge-base/">企业 AI 知识库搭建</a></li>
+            <li><a href="/geo-ai-search/">GEO 与 AI 搜索优化</a></li>
+            <li><a href="/website-ai-operations/">网站与 AI 系统运维优化</a></li>
+            <li><a href="/server-ops-security/">服务器运维与网站安全加固</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/geo/" aria-current="page">王经理讲GEO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/client-cases/">客户案例</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">关于王经理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact/">联系王经理</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      <a class="btn btn-sm" href="/contact/">聊聊需求</a>
+      <label class="nav-btn" for="nav-toggle" aria-label="打开 / 收起菜单" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </div>
+</header>
+<main id="main">
+<header class="content-head">
+  <div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol>
+    <li>
+      <a href="/">首页</a>
+    </li>
+    <li>
+      <span aria-current="page">王经理讲GEO</span>
+    </li>
+  </ol>
+</nav>
+    <h1>王经理讲GEO</h1>
+<p class="lead">15 年程序员讲 GEO：让 AI 读懂你的品牌，在回答里推荐你。</p>    <div class="content-meta">
+      <span>发布于 <time datetime="2026-11-22T05:52:07.111Z">2026-11-22</time></span>
+      <span>更新于 <time datetime="2026-11-25T01:27:26.239Z">2026-11-25</time></span>
+<span>王经理</span>    </div>
+  </div>
+</header>
+
+<div class="content-body">
+  <div class="wrap">
+
+    <div class="prose">
+      <p>这里是「王经理讲<a href="/geo-basics/what-is-geo/">GEO</a>」——一个讲给中小企业听的 GEO（<a href="/geo-basics/what-is-geo/">生成式引擎优化</a>）专栏。作者王经理有 15 年程序员背景，转型后专注一件事：让 AI 读得懂你的品牌，在回答用户问题时能引用你、推荐你。</p>
+<p>这个专栏不是概念科普。每一篇都从客户真正会问的问题出发：GEO 和 <a href="/insights/seo-not-enough-why-geo/">SEO</a> 到底差在哪、为什么发软文没用了、AI 是怎么认识一个品牌的、<a href="/geo-basics/what-is-brand-knowledge-base/">品牌知识库</a>怎么三步搭起来、外贸企业最容易踩哪些坑。文章里给出的定义和步骤，都能直接照着做。</p>
+<p>专栏本身也是一个样板：这个站就是按它讲的 GEO 标准建的——按问题组织内容、定义先行、全站结构化数据、对 AI 爬虫开放。如果你想知道“按 GEO 标准建的站长什么样”，从导航里点开任意一篇就是答案。</p>
+    </div>
+
+<section class="blk blk-features is-editorial">
+<h2>这个专栏讲什么</h2>  <ul class="feature-grid">
+    <li>
+<h3>认知 GEO</h3><p>GEO 是什么、和 SEO 差在哪、AI 怎么挑答案。</p>    </li>
+    <li>
+<h3>误区与真相</h3><p>软文为什么没用、外贸三个大坑、知识库为什么是地基。</p>    </li>
+    <li>
+<h3>实操方法</h3><p>先做什么、知识库三步搭法、信源建设与效果监测。</p>    </li>
+    <li>
+<h3>行业观察与案例</h3><p>15 年程序员转型的真实变化、做 GEO 要花多少钱。</p>    </li>
+  </ul>
+</section>
+<section class="blk blk-topics">
+<h2>按主题浏览</h2><p class="blk-topics-intro">先弄懂概念，再看怎么动手，然后看行业变化和真实案例。每个栏目下是这一类问题的全部文章。</p>  <ul class="topic-grid">
+    <li>
+      <a class="topic-card" href="/geo-basics/">
+        <span class="topic-count">2 篇文章</span>
+        <h3>认知 GEO</h3>
+        <p>GEO 是什么、品牌知识库是什么、AI 凭什么选你。这一栏解决「概念不清」的问题。</p>
+        <span class="topic-go">查看全部 <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+    <li>
+      <a class="topic-card" href="/practice/">
+        <span class="topic-count">10 篇文章</span>
+        <h3>实操方法</h3>
+        <p>能照着做的动作清单：盘事实、搭知识库、建信源、量化监测。</p>
+        <span class="topic-go">查看全部 <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+    <li>
+      <a class="topic-card" href="/insights/">
+        <span class="topic-count">10 篇文章</span>
+        <h3>行业观察</h3>
+        <p>预算怎么花、行业往哪走、一个技术人的亲历。变化快的部分放在这里。</p>
+        <span class="topic-go">查看全部 <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+    <li>
+      <a class="topic-card" href="/cases/">
+        <span class="topic-count">2 篇文章</span>
+        <h3>案例复盘</h3>
+        <p>做过什么、改了什么、结果如何。能复盘的过程比漂亮的数字有用。</p>
+        <span class="topic-go">查看全部 <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+    <li>
+      <a class="topic-card" href="/wordpress/">
+        <span class="topic-count">10 篇文章</span>
+        <h3>WordPress 实战</h3>
+        <p>外贸站开发十几年攒下的实在经验：模板与定制怎么选、多语言、速度、安全、询盘转化。</p>
+        <span class="topic-go">查看全部 <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+    <li>
+      <a class="topic-card" href="/ai-apps/">
+        <span class="topic-count">10 篇文章</span>
+        <h3>AI 应用实战</h3>
+        <p>什么样的业务适合上 AI、成本花在哪、数据怎么准备、哪些环节必须留人工。</p>
+        <span class="topic-go">查看全部 <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+    <li>
+      <a class="topic-card" href="/knowledge-base/">
+        <span class="topic-count">10 篇文章</span>
+        <h3>知识库实战</h3>
+        <p>企业 AI 知识库怎么搭、怎么喂、谁维护，以及我见过的翻车现场。</p>
+        <span class="topic-go">查看全部 <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+    <li>
+      <a class="topic-card" href="/site-ops/">
+        <span class="topic-count">10 篇文章</span>
+        <h3>网站运维实战</h3>
+        <p>网站和 AI 系统上线后要盯什么、怎么排障、备份和更新的节奏怎么定。</p>
+        <span class="topic-go">查看全部 <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+    <li>
+      <a class="topic-card" href="/server-security/">
+        <span class="topic-count">10 篇文章</span>
+        <h3>服务器与安全</h3>
+        <p>选服务器、宝塔配置、SSH、防火墙、被挂马怎么救，都是真实踩过的坑。</p>
+        <span class="topic-go">查看全部 <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+  </ul>
+</section>
+<section class="blk blk-faq is-editorial">
+  <h2>GEO 快问快答</h2>
+  <details class="faq-item">
+    <summary>GEO 和 SEO 有什么区别？</summary>
+    <p>SEO 争的是搜索结果的链接位置，GEO 争的是 AI 答案里的引用和推荐。入口、逻辑、衡量方式都不同：SEO 看排名和点击，GEO 看 AI 有没有提到你、说得对不对。</p>
+  </details>
+  <details class="faq-item">
+    <summary>做 GEO 能保证被 AI 推荐吗？</summary>
+    <p>不能，任何人说能保证都不可信。能做的是把真实、权威、结构清晰的信息准备好，让 AI 有据可依——这是必要条件，不是充分条件。</p>
+  </details>
+  <details class="faq-item">
+    <summary>品牌知识库怎么搭？</summary>
+    <p>三步：盘点品牌事实（产品、案例、资质）→ 用统一的词和说法写成机器友好的页面 → 在官网与信源平台同步发布并保持一致。不用写代码，三步就能搭起来。</p>
+  </details>
+  <details class="faq-item">
+    <summary>现在发软文做 GEO 还有用吗？</summary>
+    <p>基本没用。AI 不数篇数，它数信源——要的是多个独立信源交叉印证。批量低质软文在它眼里只是一个声音，满篇自夸还会被当成营销话术直接过滤。</p>
+  </details>
+  <details class="faq-item">
+    <summary>AI 是怎么认识一个品牌的？</summary>
+    <p>AI 没有眼睛，只认识文字。它分三步：收集碎片（官网、资料、评价、报道）→ 拼出印象（统计哪些词总和你一起出现）→ 决定推荐（信息清晰且来自不同可信渠道，才敢报你的名字）。</p>
+  </details>
+  <details class="faq-item">
+    <summary>中小企业做 GEO，最该先做的一件事是什么？</summary>
+    <p>先把品牌整理成 AI 读得懂、信得过的信息底子——盘清三个问题：你是谁、你凭什么、凭什么选你。地基没打，发再多稿、投再多钱也没用。</p>
+  </details>
+  <details class="faq-item">
+    <summary>做 GEO 要花多少钱？</summary>
+    <p>三种花法：铺量式发稿（AI 只认信源，大概率打水漂）、投放式买广告（流量买得到，但客户已经转向问 AI）、基建式搭知识库（一次性地基投入，成本比想象中低）。建议先做一次 AI 可见度诊断，再决定投入方式。</p>
+  </details>
+</section>
+<section class="blk blk-cta">
+  <div>
+<h2>想让 AI 准确描述你的品牌？</h2><p>从一篇《GEO 是什么》读起，或者直接找我聊你的具体情况。</p>  </div>
+  <a class="btn" href="/contact/">聊聊需求</a>
+</section>
+
+
+
+
+    <section class="related">
+      <h2>继续读</h2>
+      <ul class="plain-list">
+        <li><a href="/about/">关于王经理</a></li>
+        <li><a href="/contact/">联系王经理</a></li>
+        <li><a href="/client-cases/">客户案例</a></li>
+        <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">王</span>
+          王经理 · 定制开发
+        </p>
+        <p class="footer-about">
+WordPress 外贸站、SEO 优化、静态独立站、GEO 品牌知识库一站式定制开发，15 年程序员按需求交付，让企业在搜索引擎和 AI 回答里被找到、被推荐。        </p>
+      </div>
+
+      <div class="footer-col">
+        <h2>快速导航</h2>
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/wordpress-development/">服务</a></li>
+          <li><a href="/geo/">王经理讲GEO</a></li>
+          <li><a href="/client-cases/">客户案例</a></li>
+          <li><a href="/about/">关于王经理</a></li>
+          <li><a href="/contact/">联系王经理</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>联系我们</h2>
+        <ul>
+<li><a href="mailto:827332186@qq.com">827332186@qq.com</a></li>        </ul>
+        <div class="footer-wechat">
+          <span class="footer-wechat-frame">
+            <img src="/media/contact/wechat-qr.png" alt="王经理微信二维码，扫码咨询网站定制、AI 应用与知识库搭建" width="72" height="72" loading="lazy">
+          </span>
+          <span class="footer-wechat-text">微信扫码添加<br>备注来意更快通过</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h2>我们的服务</h2>
+        <ul>
+          <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+          <li><a href="/ai-applications/">AI 应用定制开发</a></li>
+          <li><a href="/ai-knowledge-base/">企业 AI 知识库搭建</a></li>
+          <li><a href="/geo-ai-search/">GEO 与 AI 搜索优化</a></li>
+          <li><a href="/website-ai-operations/">网站与 AI 系统运维优化</a></li>
+          <li><a href="/server-ops-security/">服务器运维与网站安全加固</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-meta-links">
+      <a href="/sitemap.html">网站地图</a><span aria-hidden="true"> · </span><a href="/llms.txt">给 AI 的站点说明</a>
+    </p>
+    <p class="footer-copyright">© 2026 王经理 · 定制开发. 保留所有权利</p>
+  </div>
+</footer>
+<button class="to-top" type="button" aria-label="返回顶部" title="返回顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 20V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script>
+(function () {
+  var btn = document.querySelector('.to-top');
+  if (!btn) return;
+  var onScroll = function () {
+    btn.classList.toggle('is-visible', window.scrollY > 480);
+  };
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { onScroll(); ticking = false; });
+  }, { passive: true });
+  onScroll();
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

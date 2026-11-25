@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>知识库按文档分类还是按客户问题分类？我选后者 | 王经理</title>
+<meta name="description" content="知识库目录按文档来源分，还是按客户问题分？本文用工业配件客户的真实例子说明：客户不会照着你的文件夹提问，答案按文档切碎后很难拼齐。作者给出按高频问题组织知识库的具体做法，以及如何从微信记录和工单里扒出前十个问题。">
+<link rel="canonical" href="https://wangmanager.com/knowledge-base/kb-structure-by-question/">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<link rel="alternate" hreflang="zh-CN" href="https://wangmanager.com/knowledge-base/kb-structure-by-question/">
+<link rel="alternate" hreflang="x-default" href="https://wangmanager.com/knowledge-base/kb-structure-by-question/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="王经理 · 定制开发">
+<meta property="og:title" content="知识库按文档分类还是按客户问题分类？我选后者 | 王经理">
+<meta property="og:description" content="知识库目录按文档来源分，还是按客户问题分？本文用工业配件客户的真实例子说明：客户不会照着你的文件夹提问，答案按文档切碎后很难拼齐。作者给出按高频问题组织知识库的具体做法，以及如何从微信记录和工单里扒出前十个问题。">
+<meta property="og:url" content="https://wangmanager.com/knowledge-base/kb-structure-by-question/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://wangmanager.com/media/knowledge-base/kb-structure-by-question.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="754">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="知识库按文档分类还是按客户问题分类？我选后者 | 王经理">
+<meta name="twitter:description" content="知识库目录按文档来源分，还是按客户问题分？本文用工业配件客户的真实例子说明：客户不会照着你的文件夹提问，答案按文档切碎后很难拼齐。作者给出按高频问题组织知识库的具体做法，以及如何从微信记录和工单里扒出前十个问题。">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="icon" type="image/svg+xml" href="/media/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32.png">
+<link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
+<meta property="article:published_time" content="2026-11-23T09:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-25T02:06:48.287Z">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://wangmanager.com/#person","name":"王经理","jobTitle":"15 年程序员 · 定制开发服务商","description":"王经理，15 年程序员，主营 WordPress 外贸网站、AI 应用与企业知识库定制开发，同时撰写「王经理讲GEO」专栏，讲中小企业怎么让 AI 读懂自己的品牌。"},{"@type":"Organization","@id":"https://wangmanager.com/#organization","name":"王经理 · 定制开发","url":"https://wangmanager.com/","email":"827332186@qq.com","founder":{"@id":"https://wangmanager.com/#person"},"knowsAbout":["WordPress 外贸网站定制开发","AI 应用定制开发","企业 AI 知识库搭建","GEO 与 AI 搜索优化","网站与 AI 系统运维优化","服务器运维与网站安全加固"]},{"@type":"Service","@id":"https://wangmanager.com/#service-1","name":"WordPress 外贸网站定制开发","description":"15 年经验，围绕产品展示、用户信任、询盘转化和后期运营，打造稳定、安全、易维护的外贸网站。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"WordPress 外贸网站定制开发","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-2","name":"AI 应用定制开发","description":"结合企业现有网站、产品资料和业务流程，开发可落地的 AI 应用，不做只能演示的概念品。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"AI 应用定制开发","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-3","name":"企业 AI 知识库搭建","description":"把分散的产品手册、技术文档和 FAQ 整理成结构清晰、可检索、可回答的知识库，并接入 AI 助手。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"企业 AI 知识库搭建","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-4","name":"GEO 与 AI 搜索优化","description":"让企业真实、权威、结构清晰的信息更容易被 AI 理解和引用——不承诺“保证被 AI 推荐”。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"GEO 与 AI 搜索优化","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-5","name":"网站与 AI 系统运维优化","description":"应用与内容层运维：程序更新、AI 问答与知识库维护、故障处理和数据备份。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"网站与 AI 系统运维优化","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-6","name":"服务器运维与网站安全加固","description":"从服务器环境搭建、宝塔面板运维，到宕机排查、防火墙加固、AI 爬虫策略与性能调优——让网站的底座稳、安全、快。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"服务器运维与网站安全加固","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"WebSite","@id":"https://wangmanager.com/#website","url":"https://wangmanager.com/","name":"王经理 · 定制开发","description":"WordPress 外贸站、SEO 优化、静态独立站、GEO 品牌知识库一站式定制开发，15 年程序员按需求交付，让企业在搜索引擎和 AI 回答里被找到、被推荐。","publisher":{"@id":"https://wangmanager.com/#organization"},"inLanguage":["zh-CN"]},{"@type":"WebPage","@id":"https://wangmanager.com/knowledge-base/kb-structure-by-question/","url":"https://wangmanager.com/knowledge-base/kb-structure-by-question/","name":"知识库按文档分类还是按客户问题分类？我选后者 | 王经理","description":"知识库目录按文档来源分，还是按客户问题分？本文用工业配件客户的真实例子说明：客户不会照着你的文件夹提问，答案按文档切碎后很难拼齐。作者给出按高频问题组织知识库的具体做法，以及如何从微信记录和工单里扒出前十个问题。","isPartOf":{"@id":"https://wangmanager.com/#website"},"inLanguage":"zh-CN"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://wangmanager.com/"},{"@type":"ListItem","position":2,"name":"知识库实战","item":"https://wangmanager.com/knowledge-base/"},{"@type":"ListItem","position":3,"name":"按文档分类还是按客户问题分类？我选后者","item":"https://wangmanager.com/knowledge-base/kb-structure-by-question/"}]},{"@type":"BlogPosting","@id":"https://wangmanager.com/knowledge-base/kb-structure-by-question/#article","headline":"按文档分类还是按客户问题分类？我选后者","description":"客户把知识库目录分成「公司制度、产品资料、常见问题」，看着齐整，像整理档案柜。可客户问一句「能不能按我的尺寸做」，答案散在三个文件夹里。我的做法是按问题组织，一个问题一条答案。","image":["https://wangmanager.com/media/knowledge-base/kb-structure-by-question.svg"],"datePublished":"2026-11-23T09:00:00.000Z","dateModified":"2026-11-25T02:06:48.287Z","author":{"@type":"Person","@id":"https://wangmanager.com/#person","name":"王经理"},"publisher":{"@id":"https://wangmanager.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://wangmanager.com/knowledge-base/kb-structure-by-question/"},"inLanguage":"zh-CN","url":"https://wangmanager.com/knowledge-base/kb-structure-by-question/","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".prose > p:first-of-type"]}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="top-banner">
+  <div class="wrap top-banner-inner">
+    <span>帮外贸和中小企业，在 AI 时代多拿客户、多接单</span>
+  </div>
+</div>
+<header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">王</span>
+      <span class="brand-text">
+        <strong>王经理 · 定制开发</strong>
+<em>定制开发 · AI 应用 · GEO</em>      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="/">首页</a>
+        </li>
+        <li class="nav-item has-sub">
+          <a class="nav-link" href="/wordpress-development/">服务</a>
+          <ul class="subnav">
+            <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+            <li><a href="/ai-applications/">AI 应用定制开发</a></li>
+            <li><a href="/ai-knowledge-base/">企业 AI 知识库搭建</a></li>
+            <li><a href="/geo-ai-search/">GEO 与 AI 搜索优化</a></li>
+            <li><a href="/website-ai-operations/">网站与 AI 系统运维优化</a></li>
+            <li><a href="/server-ops-security/">服务器运维与网站安全加固</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/geo/">王经理讲GEO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/client-cases/">客户案例</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">关于王经理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact/">联系王经理</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      <a class="btn btn-sm" href="/contact/">聊聊需求</a>
+      <label class="nav-btn" for="nav-toggle" aria-label="打开 / 收起菜单" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </div>
+</header>
+<main id="main">
+<header class="content-head">
+  <div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol>
+    <li>
+      <a href="/">首页</a>
+    </li>
+    <li>
+      <a href="/knowledge-base/">知识库实战</a>
+    </li>
+    <li>
+      <span aria-current="page">按文档分类还是按客户问题分类？我选后者</span>
+    </li>
+  </ol>
+</nav>
+    <h1>按文档分类还是按客户问题分类？我选后者</h1>
+<p class="lead">客户把知识库目录分成「公司制度、产品资料、常见问题」，看着齐整，像整理档案柜。可客户问一句「能不能按我的尺寸做」，答案散在三个文件夹里。我的做法是按问题组织，一个问题一条答案。</p>    <div class="content-meta">
+      <span>发布于 <time datetime="2026-11-23T09:00:00.000Z">2026-11-23</time></span>
+      <span>更新于 <time datetime="2026-11-25T02:06:48.287Z">2026-11-25</time></span>
+<span>王经理</span><span>知识库实战</span>    </div>
+  </div>
+</header>
+
+<div class="content-body">
+  <div class="wrap">
+    <figure class="cover">
+      <img src="/media/knowledge-base/kb-structure-by-question.svg" alt="按文档分类还是按客户问题分类？我选后者" width="1400" height="800">
+    </figure>
+
+    <div class="prose">
+      <p>有个客户给我看他们做的<a href="/knowledge-base/kb-what-is-real/">知识库</a>，目录分得挺齐整：公司制度、产品资料、常见问题、行业动态。一看就是按文档来源分的，像在整理档案柜。</p>
+<p>我问他：销售在客户现场，客户问「能不能按我的尺寸做」，他去哪个文件夹找答案？</p>
+<figure class="article-fig"><img src="/media/infographics/kb-structure-by-question.svg" alt="知识库按文档分类与按客户问题分类的对比图，说明为什么问题导向的目录更好用。" width="1400" height="800" loading="lazy" decoding="async"><figcaption>问问题的人，不会照着你的目录问。</figcaption></figure>
+<p>客户的问题不在任何一个文件夹里——答案一半在产品资料，一半在报价规则，还有一半在售后政策。按文档分，答案就被切成了三块，销售得自己拼。</p>
+<p>我一直主张按客户问题来组织知识库，不按文档类型。原因很简单：问问题的人不会照着你的目录问。他脑子里想的是「我这个需求能不能满足」，不是「这属于产品资料还是售后政策」。</p>
+<p>你自己回忆一下，上次客服或销售被问住的那一刻，他是按文件夹找的，还是凭印象在一堆东西里翻？多半是后者。知识库要做的事，就是把这种凭印象的翻找，变成一个问题对应一条现成的答案。</p>
+<p>具体怎么做？我一般让客户先把最常问的问题列出来。从哪列？从销售和客户的微信记录里扒，从客服工单里扒，从售前被问过无数遍的那几个问题里扒。一家做工业配件的客户，我们扒出来三十多个高频问题，排下来发现前十个就覆盖了八成的提问。</p>
+<p>这里要提醒一句：问题清单不是一次定完就不变。客户会冒出新问题，产品上新也会带来新问题。我让客户把这张表当活文档，客服每周碰到一个新问题就往里加一条。半年下来，这张表本身就是公司最值钱的销售资料——它把客户脑子里真正在意的东西，一条条记了下来。</p>
+<p>还有个细节：一个问题的答案下面，最好顺手记一句「客户为什么会问这个」。同样是问保修期，有人是担心售后成本，有人是打算转手卖，背后关切不同，回答的侧重也不一样。记上这一句，销售照着答就不会答偏。</p>
+<p>然后一个问题建一个条目，答案写在下面，末尾挂上它的出处——哪份文档、哪一版、谁确认的。这样客户问一句，就能直接捡到一条完整的答案，不用自己把三块拼起来。出处挂上去还有个好处：哪天答案对不上，能顺着找到源头去改。</p>
+<p>按文档分类就没用了吗？也不是。内部归档、审计留痕，按文档分类更顺手。但那是对内整理，不是对外回答。你要做给销售、客服和 AI 用的知识库，按问题分才对路。我见过不少公司两个目录都做，一份归档一份问答，各管各的，这也没问题，怕的是只有档案柜没有问答。</p>
+<p>判断标准就一条：拿你客户最常问的那个问题，能不能在你的知识库里一步找到答案。找得到，结构就对了；要翻三个文件夹还拼不全，那就是结构错了。</p>
+    </div>
+
+
+
+
+
+    <section class="related">
+      <h2>继续读</h2>
+      <ul class="plain-list">
+        <li><a href="/geo-basics/what-is-geo/">什么是 GEO？用张老板的例子讲明白</a></li>
+        <li><a href="/geo-basics/what-is-brand-knowledge-base/">品牌知识库是什么？为什么比官网更重要</a></li>
+        <li><a href="/how-ai-answers/how-ai-knows-your-brand/">AI 是怎么「认识」一个品牌的？底层逻辑一次讲清</a></li>
+        <li><a href="/how-ai-answers/no-website-ai-view/">传统企业没有独立站，AI 会怎么看你？</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">王</span>
+          王经理 · 定制开发
+        </p>
+        <p class="footer-about">
+WordPress 外贸站、SEO 优化、静态独立站、GEO 品牌知识库一站式定制开发，15 年程序员按需求交付，让企业在搜索引擎和 AI 回答里被找到、被推荐。        </p>
+      </div>
+
+      <div class="footer-col">
+        <h2>快速导航</h2>
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/wordpress-development/">服务</a></li>
+          <li><a href="/geo/">王经理讲GEO</a></li>
+          <li><a href="/client-cases/">客户案例</a></li>
+          <li><a href="/about/">关于王经理</a></li>
+          <li><a href="/contact/">联系王经理</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>联系我们</h2>
+        <ul>
+<li><a href="mailto:827332186@qq.com">827332186@qq.com</a></li>        </ul>
+        <div class="footer-wechat">
+          <span class="footer-wechat-frame">
+            <img src="/media/contact/wechat-qr.png" alt="王经理微信二维码，扫码咨询网站定制、AI 应用与知识库搭建" width="72" height="72" loading="lazy">
+          </span>
+          <span class="footer-wechat-text">微信扫码添加<br>备注来意更快通过</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h2>我们的服务</h2>
+        <ul>
+          <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+          <li><a href="/ai-applications/">AI 应用定制开发</a></li>
+          <li><a href="/ai-knowledge-base/">企业 AI 知识库搭建</a></li>
+          <li><a href="/geo-ai-search/">GEO 与 AI 搜索优化</a></li>
+          <li><a href="/website-ai-operations/">网站与 AI 系统运维优化</a></li>
+          <li><a href="/server-ops-security/">服务器运维与网站安全加固</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-meta-links">
+      <a href="/sitemap.html">网站地图</a><span aria-hidden="true"> · </span><a href="/llms.txt">给 AI 的站点说明</a>
+    </p>
+    <p class="footer-copyright">© 2026 王经理 · 定制开发. 保留所有权利</p>
+  </div>
+</footer>
+<button class="to-top" type="button" aria-label="返回顶部" title="返回顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 20V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script>
+(function () {
+  var btn = document.querySelector('.to-top');
+  if (!btn) return;
+  var onScroll = function () {
+    btn.classList.toggle('is-visible', window.scrollY > 480);
+  };
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { onScroll(); ticking = false; });
+  }, { passive: true });
+  onScroll();
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

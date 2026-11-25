@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 胡说八道怎么防？我用的几个笨办法 | 王经理</title>
+<meta name="description" content="AI 胡说八道怎么防？王经理用客户被 AI 乱报交期坑过的案例，给出四个笨办法：限定只从给定资料作答、答案附来源可核对、关键数字做规则校验、高风险问题转人工。并提醒没有百分百不出错的 AI。">
+<link rel="canonical" href="https://wangmanager.com/ai-apps/ai-app-hallucination/">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<link rel="alternate" hreflang="zh-CN" href="https://wangmanager.com/ai-apps/ai-app-hallucination/">
+<link rel="alternate" hreflang="x-default" href="https://wangmanager.com/ai-apps/ai-app-hallucination/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="王经理 · 定制开发">
+<meta property="og:title" content="AI 胡说八道怎么防？我用的几个笨办法 | 王经理">
+<meta property="og:description" content="AI 胡说八道怎么防？王经理用客户被 AI 乱报交期坑过的案例，给出四个笨办法：限定只从给定资料作答、答案附来源可核对、关键数字做规则校验、高风险问题转人工。并提醒没有百分百不出错的 AI。">
+<meta property="og:url" content="https://wangmanager.com/ai-apps/ai-app-hallucination/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://wangmanager.com/media/ai-apps/ai-app-hallucination.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="754">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 胡说八道怎么防？我用的几个笨办法 | 王经理">
+<meta name="twitter:description" content="AI 胡说八道怎么防？王经理用客户被 AI 乱报交期坑过的案例，给出四个笨办法：限定只从给定资料作答、答案附来源可核对、关键数字做规则校验、高风险问题转人工。并提醒没有百分百不出错的 AI。">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="icon" type="image/svg+xml" href="/media/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32.png">
+<link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
+<meta property="article:published_time" content="2026-11-23T09:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-25T02:06:48.287Z">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://wangmanager.com/#person","name":"王经理","jobTitle":"15 年程序员 · 定制开发服务商","description":"王经理，15 年程序员，主营 WordPress 外贸网站、AI 应用与企业知识库定制开发，同时撰写「王经理讲GEO」专栏，讲中小企业怎么让 AI 读懂自己的品牌。"},{"@type":"Organization","@id":"https://wangmanager.com/#organization","name":"王经理 · 定制开发","url":"https://wangmanager.com/","email":"827332186@qq.com","founder":{"@id":"https://wangmanager.com/#person"},"knowsAbout":["WordPress 外贸网站定制开发","AI 应用定制开发","企业 AI 知识库搭建","GEO 与 AI 搜索优化","网站与 AI 系统运维优化","服务器运维与网站安全加固"]},{"@type":"Service","@id":"https://wangmanager.com/#service-1","name":"WordPress 外贸网站定制开发","description":"15 年经验，围绕产品展示、用户信任、询盘转化和后期运营，打造稳定、安全、易维护的外贸网站。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"WordPress 外贸网站定制开发","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-2","name":"AI 应用定制开发","description":"结合企业现有网站、产品资料和业务流程，开发可落地的 AI 应用，不做只能演示的概念品。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"AI 应用定制开发","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-3","name":"企业 AI 知识库搭建","description":"把分散的产品手册、技术文档和 FAQ 整理成结构清晰、可检索、可回答的知识库，并接入 AI 助手。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"企业 AI 知识库搭建","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-4","name":"GEO 与 AI 搜索优化","description":"让企业真实、权威、结构清晰的信息更容易被 AI 理解和引用——不承诺“保证被 AI 推荐”。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"GEO 与 AI 搜索优化","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-5","name":"网站与 AI 系统运维优化","description":"应用与内容层运维：程序更新、AI 问答与知识库维护、故障处理和数据备份。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"网站与 AI 系统运维优化","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-6","name":"服务器运维与网站安全加固","description":"从服务器环境搭建、宝塔面板运维，到宕机排查、防火墙加固、AI 爬虫策略与性能调优——让网站的底座稳、安全、快。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"服务器运维与网站安全加固","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"WebSite","@id":"https://wangmanager.com/#website","url":"https://wangmanager.com/","name":"王经理 · 定制开发","description":"WordPress 外贸站、SEO 优化、静态独立站、GEO 品牌知识库一站式定制开发，15 年程序员按需求交付，让企业在搜索引擎和 AI 回答里被找到、被推荐。","publisher":{"@id":"https://wangmanager.com/#organization"},"inLanguage":["zh-CN"]},{"@type":"WebPage","@id":"https://wangmanager.com/ai-apps/ai-app-hallucination/","url":"https://wangmanager.com/ai-apps/ai-app-hallucination/","name":"AI 胡说八道怎么防？我用的几个笨办法 | 王经理","description":"AI 胡说八道怎么防？王经理用客户被 AI 乱报交期坑过的案例，给出四个笨办法：限定只从给定资料作答、答案附来源可核对、关键数字做规则校验、高风险问题转人工。并提醒没有百分百不出错的 AI。","isPartOf":{"@id":"https://wangmanager.com/#website"},"inLanguage":"zh-CN"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://wangmanager.com/"},{"@type":"ListItem","position":2,"name":"AI 应用实战","item":"https://wangmanager.com/ai-apps/"},{"@type":"ListItem","position":3,"name":"AI 胡说八道怎么防：我用的几个笨办法","item":"https://wangmanager.com/ai-apps/ai-app-hallucination/"}]},{"@type":"BlogPosting","@id":"https://wangmanager.com/ai-apps/ai-app-hallucination/#article","headline":"AI 胡说八道怎么防：我用的几个笨办法","description":"客户被 AI 乱报交期坑过，来问我怎么防。AI 会编是天性，消不掉但能摁住：画地为牢只从资料里答、答案挂来源能核对、数字上锁、高风险的转人工。别信谁说他的 AI 百分百不出错。","image":["https://wangmanager.com/media/ai-apps/ai-app-hallucination.svg"],"datePublished":"2026-11-23T09:00:00.000Z","dateModified":"2026-11-25T02:06:48.287Z","author":{"@type":"Person","@id":"https://wangmanager.com/#person","name":"王经理"},"publisher":{"@id":"https://wangmanager.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://wangmanager.com/ai-apps/ai-app-hallucination/"},"inLanguage":"zh-CN","url":"https://wangmanager.com/ai-apps/ai-app-hallucination/","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".prose > p:first-of-type"]}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="top-banner">
+  <div class="wrap top-banner-inner">
+    <span>帮外贸和中小企业，在 AI 时代多拿客户、多接单</span>
+  </div>
+</div>
+<header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">王</span>
+      <span class="brand-text">
+        <strong>王经理 · 定制开发</strong>
+<em>定制开发 · AI 应用 · GEO</em>      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="/">首页</a>
+        </li>
+        <li class="nav-item has-sub">
+          <a class="nav-link" href="/wordpress-development/">服务</a>
+          <ul class="subnav">
+            <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+            <li><a href="/ai-applications/">AI 应用定制开发</a></li>
+            <li><a href="/ai-knowledge-base/">企业 AI 知识库搭建</a></li>
+            <li><a href="/geo-ai-search/">GEO 与 AI 搜索优化</a></li>
+            <li><a href="/website-ai-operations/">网站与 AI 系统运维优化</a></li>
+            <li><a href="/server-ops-security/">服务器运维与网站安全加固</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/geo/">王经理讲GEO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/client-cases/">客户案例</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">关于王经理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact/">联系王经理</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      <a class="btn btn-sm" href="/contact/">聊聊需求</a>
+      <label class="nav-btn" for="nav-toggle" aria-label="打开 / 收起菜单" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </div>
+</header>
+<main id="main">
+<header class="content-head">
+  <div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol>
+    <li>
+      <a href="/">首页</a>
+    </li>
+    <li>
+      <a href="/ai-apps/">AI 应用实战</a>
+    </li>
+    <li>
+      <span aria-current="page">AI 胡说八道怎么防：我用的几个笨办法</span>
+    </li>
+  </ol>
+</nav>
+    <h1>AI 胡说八道怎么防：我用的几个笨办法</h1>
+<p class="lead">客户被 AI 乱报交期坑过，来问我怎么防。AI 会编是天性，消不掉但能摁住：画地为牢只从资料里答、答案挂来源能核对、数字上锁、高风险的转人工。别信谁说他的 AI 百分百不出错。</p>    <div class="content-meta">
+      <span>发布于 <time datetime="2026-11-23T09:00:00.000Z">2026-11-23</time></span>
+      <span>更新于 <time datetime="2026-11-25T02:06:48.287Z">2026-11-25</time></span>
+<span>王经理</span><span>AI 应用实战</span>    </div>
+  </div>
+</header>
+
+<div class="content-body">
+  <div class="wrap">
+    <figure class="cover">
+      <img src="/media/ai-apps/ai-app-hallucination.svg" alt="AI 胡说八道怎么防：我用的几个笨办法" width="1400" height="800">
+    </figure>
+
+    <div class="prose">
+      <p>有个客户被 AI 坑怕了。他之前自己接了个模型做产品问答，有一回客户问交期，AI 张口就报了个「三天发货」，公司根本没这个承诺，客户当真了，最后闹到要退货。他问我怎么防 AI 胡说八道。</p>
+<p>先说句实话：AI 会编，这是它的毛病，消不掉。它本质上是在猜下一个字该说什么，不是在查数据库。你没法让它百分百不说错，但能把胡说的空间压得很小。我用的都是些笨办法，不高级，但管用。</p>
+<figure class="article-fig"><img src="/media/infographics/ai-app-hallucination.svg" alt="防止AI大模型幻觉的实操清单：提示词限定资料来源、答案挂出处、价格交期等关键字段做规则校验" width="1400" height="800" loading="lazy" decoding="async"><figcaption>AI 会编是毛病，消不掉但能压小</figcaption></figure>
+<p>第一个笨办法，画地为牢。我在提示词里写死：只准从给定的资料里找答案，资料里没有的，就老老实实说「这个我不清楚，帮您转人工」，不准自己编。这一句能挡掉大半胡说。光靠这句话还不够，得配合第二个。</p>
+<p>第二个，答案后面挂来源。我让机器人每答一句产品参数，后面都带上「来源：产品手册第 12 页」这种标注，客户一点就能翻到原文核对。我那个客户后来反馈说，就这个小标注，客户信任度一下上来了——因为知道这话有出处，不是 AI 随口编的。而且倒逼我们把资料整理得清清楚楚，不然出处都没法标。</p>
+<p>第三个，关键字段做规则校验。像交期、价格、功率这些数字，不准 AI 自由发挥。我在程序里设了规矩：这类字段必须从结构化的表里取值，取值对不上就直接不答、转人工。数字这东西一编就出事，绝不能交给模型自己填。数字上锁这块，我吃过一次亏才较真。早先有个客户问价格，AI 从一段旧文字里扒了个去年的价报出去，差了好几百。从那以后我定了死规矩：凡是钱、日期、数量这类字段，一律走结构化数据表取值，AI 只负责把取到的值组织成句子，不准它自己算、自己改。</p>
+<p>第四个，高风险问题不让它直接答。凡是涉及承诺、法律、医疗、金额的，一律不给直接答案，要么转人工，要么只给流程不给结论。这条是底线。</p>
+<p>这几个办法叠起来，胡说基本就被摁住了。但你别指望一劳永逸——业务在变、资料在更新，隔段时间就得回头看看它最近有没有又开始乱说。我一般让客户每月抽查几十条真实对话，看到编的就回头补资料、改规矩。抽查的时候我一般会故意问几个刁钻的——比如把型号写错一个字母，看它会不会硬着头皮答。答了就说明它还在瞎猜，得继续收紧。用真客户的问题去试，比用自己编的试更准。</p>
+<p>防 AI 胡说，没什么黑科技，就是把它圈在资料里、让它说得出处、关键数字上锁、高风险的不让它开口。哪天有人跟你说他的 AI 百分百不会错，你别信。</p>
+<p>你家 AI 最近有没有说过离谱的话？说说是什么场景，我帮你看看是该补资料还是该上规矩。</p>
+    </div>
+
+
+
+
+
+    <section class="related">
+      <h2>继续读</h2>
+      <ul class="plain-list">
+        <li><a href="/geo-basics/what-is-geo/">什么是 GEO？用张老板的例子讲明白</a></li>
+        <li><a href="/geo-basics/what-is-brand-knowledge-base/">品牌知识库是什么？为什么比官网更重要</a></li>
+        <li><a href="/how-ai-answers/how-ai-knows-your-brand/">AI 是怎么「认识」一个品牌的？底层逻辑一次讲清</a></li>
+        <li><a href="/how-ai-answers/no-website-ai-view/">传统企业没有独立站，AI 会怎么看你？</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">王</span>
+          王经理 · 定制开发
+        </p>
+        <p class="footer-about">
+WordPress 外贸站、SEO 优化、静态独立站、GEO 品牌知识库一站式定制开发，15 年程序员按需求交付，让企业在搜索引擎和 AI 回答里被找到、被推荐。        </p>
+      </div>
+
+      <div class="footer-col">
+        <h2>快速导航</h2>
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/wordpress-development/">服务</a></li>
+          <li><a href="/geo/">王经理讲GEO</a></li>
+          <li><a href="/client-cases/">客户案例</a></li>
+          <li><a href="/about/">关于王经理</a></li>
+          <li><a href="/contact/">联系王经理</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>联系我们</h2>
+        <ul>
+<li><a href="mailto:827332186@qq.com">827332186@qq.com</a></li>        </ul>
+        <div class="footer-wechat">
+          <span class="footer-wechat-frame">
+            <img src="/media/contact/wechat-qr.png" alt="王经理微信二维码，扫码咨询网站定制、AI 应用与知识库搭建" width="72" height="72" loading="lazy">
+          </span>
+          <span class="footer-wechat-text">微信扫码添加<br>备注来意更快通过</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h2>我们的服务</h2>
+        <ul>
+          <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+          <li><a href="/ai-applications/">AI 应用定制开发</a></li>
+          <li><a href="/ai-knowledge-base/">企业 AI 知识库搭建</a></li>
+          <li><a href="/geo-ai-search/">GEO 与 AI 搜索优化</a></li>
+          <li><a href="/website-ai-operations/">网站与 AI 系统运维优化</a></li>
+          <li><a href="/server-ops-security/">服务器运维与网站安全加固</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-meta-links">
+      <a href="/sitemap.html">网站地图</a><span aria-hidden="true"> · </span><a href="/llms.txt">给 AI 的站点说明</a>
+    </p>
+    <p class="footer-copyright">© 2026 王经理 · 定制开发. 保留所有权利</p>
+  </div>
+</footer>
+<button class="to-top" type="button" aria-label="返回顶部" title="返回顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 20V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script>
+(function () {
+  var btn = document.querySelector('.to-top');
+  if (!btn) return;
+  var onScroll = function () {
+    btn.classList.toggle('is-visible', window.scrollY > 480);
+  };
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { onScroll(); ticking = false; });
+  }, { passive: true });
+  onScroll();
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

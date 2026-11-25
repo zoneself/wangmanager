@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>外贸网站被挂马怎么办？三个最常见入侵入口 | 王经理</title>
+<meta name="description" content="外贸站被挂马，清理费时费力，其实翻来覆去就几个入口。本文讲清三个最常见的入侵途径：有漏洞或来路不明的插件主题、弱密码和没开两步验证、服务器本身没加固，并说明清理后如何判断真的干净了，帮你把防挂马的基础做扎实。">
+<link rel="canonical" href="https://wangmanager.com/wordpress/wp-security-hardening-basics/">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<link rel="alternate" hreflang="zh-CN" href="https://wangmanager.com/wordpress/wp-security-hardening-basics/">
+<link rel="alternate" hreflang="x-default" href="https://wangmanager.com/wordpress/wp-security-hardening-basics/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="王经理 · 定制开发">
+<meta property="og:title" content="外贸网站被挂马怎么办？三个最常见入侵入口 | 王经理">
+<meta property="og:description" content="外贸站被挂马，清理费时费力，其实翻来覆去就几个入口。本文讲清三个最常见的入侵途径：有漏洞或来路不明的插件主题、弱密码和没开两步验证、服务器本身没加固，并说明清理后如何判断真的干净了，帮你把防挂马的基础做扎实。">
+<meta property="og:url" content="https://wangmanager.com/wordpress/wp-security-hardening-basics/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://wangmanager.com/media/wordpress/wp-security-hardening-basics.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="754">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="外贸网站被挂马怎么办？三个最常见入侵入口 | 王经理">
+<meta name="twitter:description" content="外贸站被挂马，清理费时费力，其实翻来覆去就几个入口。本文讲清三个最常见的入侵途径：有漏洞或来路不明的插件主题、弱密码和没开两步验证、服务器本身没加固，并说明清理后如何判断真的干净了，帮你把防挂马的基础做扎实。">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="icon" type="image/svg+xml" href="/media/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32.png">
+<link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
+<meta property="article:published_time" content="2026-11-24T09:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-25T02:06:48.287Z">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://wangmanager.com/#person","name":"王经理","jobTitle":"15 年程序员 · 定制开发服务商","description":"王经理，15 年程序员，主营 WordPress 外贸网站、AI 应用与企业知识库定制开发，同时撰写「王经理讲GEO」专栏，讲中小企业怎么让 AI 读懂自己的品牌。"},{"@type":"Organization","@id":"https://wangmanager.com/#organization","name":"王经理 · 定制开发","url":"https://wangmanager.com/","email":"827332186@qq.com","founder":{"@id":"https://wangmanager.com/#person"},"knowsAbout":["WordPress 外贸网站定制开发","AI 应用定制开发","企业 AI 知识库搭建","GEO 与 AI 搜索优化","网站与 AI 系统运维优化","服务器运维与网站安全加固"]},{"@type":"Service","@id":"https://wangmanager.com/#service-1","name":"WordPress 外贸网站定制开发","description":"15 年经验，围绕产品展示、用户信任、询盘转化和后期运营，打造稳定、安全、易维护的外贸网站。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"WordPress 外贸网站定制开发","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-2","name":"AI 应用定制开发","description":"结合企业现有网站、产品资料和业务流程，开发可落地的 AI 应用，不做只能演示的概念品。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"AI 应用定制开发","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-3","name":"企业 AI 知识库搭建","description":"把分散的产品手册、技术文档和 FAQ 整理成结构清晰、可检索、可回答的知识库，并接入 AI 助手。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"企业 AI 知识库搭建","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-4","name":"GEO 与 AI 搜索优化","description":"让企业真实、权威、结构清晰的信息更容易被 AI 理解和引用——不承诺“保证被 AI 推荐”。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"GEO 与 AI 搜索优化","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-5","name":"网站与 AI 系统运维优化","description":"应用与内容层运维：程序更新、AI 问答与知识库维护、故障处理和数据备份。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"网站与 AI 系统运维优化","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-6","name":"服务器运维与网站安全加固","description":"从服务器环境搭建、宝塔面板运维，到宕机排查、防火墙加固、AI 爬虫策略与性能调优——让网站的底座稳、安全、快。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"服务器运维与网站安全加固","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"WebSite","@id":"https://wangmanager.com/#website","url":"https://wangmanager.com/","name":"王经理 · 定制开发","description":"WordPress 外贸站、SEO 优化、静态独立站、GEO 品牌知识库一站式定制开发，15 年程序员按需求交付，让企业在搜索引擎和 AI 回答里被找到、被推荐。","publisher":{"@id":"https://wangmanager.com/#organization"},"inLanguage":["zh-CN"]},{"@type":"WebPage","@id":"https://wangmanager.com/wordpress/wp-security-hardening-basics/","url":"https://wangmanager.com/wordpress/wp-security-hardening-basics/","name":"外贸网站被挂马怎么办？三个最常见入侵入口 | 王经理","description":"外贸站被挂马，清理费时费力，其实翻来覆去就几个入口。本文讲清三个最常见的入侵途径：有漏洞或来路不明的插件主题、弱密码和没开两步验证、服务器本身没加固，并说明清理后如何判断真的干净了，帮你把防挂马的基础做扎实。","isPartOf":{"@id":"https://wangmanager.com/#website"},"inLanguage":"zh-CN"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://wangmanager.com/"},{"@type":"ListItem","position":2,"name":"WordPress 实战","item":"https://wangmanager.com/wordpress/"},{"@type":"ListItem","position":3,"name":"外贸站被挂马，最常见的三个入口","item":"https://wangmanager.com/wordpress/wp-security-hardening-basics/"}]},{"@type":"BlogPosting","@id":"https://wangmanager.com/wordpress/wp-security-hardening-basics/#article","headline":"外贸站被挂马，最常见的三个入口","description":"搜索结果里自己的站后面跟着「该网站可能有害」，一点就跳博彩页。这两年我处理的挂马站，翻来覆去就那么几个入口。","image":["https://wangmanager.com/media/wordpress/wp-security-hardening-basics.svg"],"datePublished":"2026-11-24T09:00:00.000Z","dateModified":"2026-11-25T02:06:48.287Z","author":{"@type":"Person","@id":"https://wangmanager.com/#person","name":"王经理"},"publisher":{"@id":"https://wangmanager.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://wangmanager.com/wordpress/wp-security-hardening-basics/"},"inLanguage":"zh-CN","url":"https://wangmanager.com/wordpress/wp-security-hardening-basics/","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".prose > p:first-of-type"]}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="top-banner">
+  <div class="wrap top-banner-inner">
+    <span>帮外贸和中小企业，在 AI 时代多拿客户、多接单</span>
+  </div>
+</div>
+<header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">王</span>
+      <span class="brand-text">
+        <strong>王经理 · 定制开发</strong>
+<em>定制开发 · AI 应用 · GEO</em>      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="/">首页</a>
+        </li>
+        <li class="nav-item has-sub">
+          <a class="nav-link" href="/wordpress-development/">服务</a>
+          <ul class="subnav">
+            <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+            <li><a href="/ai-applications/">AI 应用定制开发</a></li>
+            <li><a href="/ai-knowledge-base/">企业 AI 知识库搭建</a></li>
+            <li><a href="/geo-ai-search/">GEO 与 AI 搜索优化</a></li>
+            <li><a href="/website-ai-operations/">网站与 AI 系统运维优化</a></li>
+            <li><a href="/server-ops-security/">服务器运维与网站安全加固</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/geo/">王经理讲GEO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/client-cases/">客户案例</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">关于王经理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact/">联系王经理</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      <a class="btn btn-sm" href="/contact/">聊聊需求</a>
+      <label class="nav-btn" for="nav-toggle" aria-label="打开 / 收起菜单" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </div>
+</header>
+<main id="main">
+<header class="content-head">
+  <div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol>
+    <li>
+      <a href="/">首页</a>
+    </li>
+    <li>
+      <a href="/wordpress/">WordPress 实战</a>
+    </li>
+    <li>
+      <span aria-current="page">外贸站被挂马，最常见的三个入口</span>
+    </li>
+  </ol>
+</nav>
+    <h1>外贸站被挂马，最常见的三个入口</h1>
+<p class="lead">搜索结果里自己的站后面跟着「该网站可能有害」，一点就跳博彩页。这两年我处理的挂马站，翻来覆去就那么几个入口。</p>    <div class="content-meta">
+      <span>发布于 <time datetime="2026-11-24T09:00:00.000Z">2026-11-24</time></span>
+      <span>更新于 <time datetime="2026-11-25T02:06:48.287Z">2026-11-25</time></span>
+<span>王经理</span><span>WordPress 实战</span>    </div>
+  </div>
+</header>
+
+<div class="content-body">
+  <div class="wrap">
+    <figure class="cover">
+      <img src="/media/wordpress/wp-security-hardening-basics.svg" alt="外贸站被挂马，最常见的三个入口" width="1400" height="800">
+    </figure>
+
+    <div class="prose">
+      <p>这两年我处理过的被<a href="/server-security/server-website-hacked/">挂马</a>的<a href="/wordpress-development/">外贸站</a>，没有十个也有八个。老板们通常都是被百度或 Google 的安全提醒吓到的，搜索结果里自己的站后面跟着「该网站可能有害」，点进去跳转到博彩或者仿冒页面。清理起来费时费力，但其实翻来覆去就那么几个入口，搞明白了能防住大半。</p>
+<p>第一个入口：<a href="/wordpress/wp-plugin-less-is-more/">插件</a>和主题有漏洞。这是最常见的。WordPress 本身核心代码安全性不错，出事的绝大多数是第三方插件和主题，尤其是那种破解版、来路不明的主题，还有装了几年从不更新的插件。我处理过一个站，侵入点是一个三年前停更的幻灯片插件，漏洞早就公开了，黑客批量扫描，一扫一个准。所以我的建议很直接：主题和插件从官方渠道装，能更新就更新，用不上的立刻删掉，别留着。那些「永久免费高级版」的破解主题，看着省钱，实际是给黑客开门。</p>
+<figure class="article-fig"><img src="/media/infographics/wp-security-hardening-basics.svg" alt="WordPress外贸站安全加固自检清单：插件主题从官方渠道装、弱密码开两步验证、服务器端口该关就关" width="1400" height="800" loading="lazy" decoding="async"><figcaption>翻来覆去就那几个入口，防住大半</figcaption></figure>
+<p>第二个入口：弱密码。这个听起来老掉牙，但我遇到的入侵里，真有不少是 admin 配 admin123 这种。黑客用工具暴力破解，试几千次就进来了。后台密码要够复杂，登录后台的地址也别用默认的 wp-admin 摆在那让人撞。更重要的是开两步验证，就算密码泄露了，对方没你手机上的验证码也进不来。还有 FTP 和主机面板的密码，一样要管好，别跟后台用同一个。</p>
+<p>第三个入口：服务器本身没加固。有些人站做得仔细，服务器却裸奔，SSH 用密码登录、root 直接暴露、该关的端口没关、面板版本很旧。站再干净，服务器被攻破了，文件照样被塞木马。这一块该做的：SSH 改密钥登录、关掉密码登录、防火墙只留必要的端口、系统和面板保持更新。</p>
+<p>被挂马之后怎么判断清理干净没有？别只看前台跳转没了就以为完事。木马经常留后门，藏在主题文件或数据库里，过几天又死灰复燃。我清理完会核对核心文件、检查最近被改过的文件、看下有没有多出来的管理员账号，再观察一段时间才算结束。</p>
+<p>说到底，防挂马没有什么高深技术，就是把这几件基础的事做扎实。插件别乱装、密码别偷懒、服务器别裸奔。你要是拿不准自己的站有没有隐患，找人做一次安全检查，花不了多少钱，比出事之后再救火划算得多。</p>
+    </div>
+
+
+
+
+
+    <section class="related">
+      <h2>继续读</h2>
+      <ul class="plain-list">
+        <li><a href="/geo-basics/what-is-geo/">什么是 GEO？用张老板的例子讲明白</a></li>
+        <li><a href="/geo-basics/what-is-brand-knowledge-base/">品牌知识库是什么？为什么比官网更重要</a></li>
+        <li><a href="/how-ai-answers/how-ai-knows-your-brand/">AI 是怎么「认识」一个品牌的？底层逻辑一次讲清</a></li>
+        <li><a href="/how-ai-answers/no-website-ai-view/">传统企业没有独立站，AI 会怎么看你？</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">王</span>
+          王经理 · 定制开发
+        </p>
+        <p class="footer-about">
+WordPress 外贸站、SEO 优化、静态独立站、GEO 品牌知识库一站式定制开发，15 年程序员按需求交付，让企业在搜索引擎和 AI 回答里被找到、被推荐。        </p>
+      </div>
+
+      <div class="footer-col">
+        <h2>快速导航</h2>
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/wordpress-development/">服务</a></li>
+          <li><a href="/geo/">王经理讲GEO</a></li>
+          <li><a href="/client-cases/">客户案例</a></li>
+          <li><a href="/about/">关于王经理</a></li>
+          <li><a href="/contact/">联系王经理</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>联系我们</h2>
+        <ul>
+<li><a href="mailto:827332186@qq.com">827332186@qq.com</a></li>        </ul>
+        <div class="footer-wechat">
+          <span class="footer-wechat-frame">
+            <img src="/media/contact/wechat-qr.png" alt="王经理微信二维码，扫码咨询网站定制、AI 应用与知识库搭建" width="72" height="72" loading="lazy">
+          </span>
+          <span class="footer-wechat-text">微信扫码添加<br>备注来意更快通过</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h2>我们的服务</h2>
+        <ul>
+          <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+          <li><a href="/ai-applications/">AI 应用定制开发</a></li>
+          <li><a href="/ai-knowledge-base/">企业 AI 知识库搭建</a></li>
+          <li><a href="/geo-ai-search/">GEO 与 AI 搜索优化</a></li>
+          <li><a href="/website-ai-operations/">网站与 AI 系统运维优化</a></li>
+          <li><a href="/server-ops-security/">服务器运维与网站安全加固</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-meta-links">
+      <a href="/sitemap.html">网站地图</a><span aria-hidden="true"> · </span><a href="/llms.txt">给 AI 的站点说明</a>
+    </p>
+    <p class="footer-copyright">© 2026 王经理 · 定制开发. 保留所有权利</p>
+  </div>
+</footer>
+<button class="to-top" type="button" aria-label="返回顶部" title="返回顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 20V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script>
+(function () {
+  var btn = document.querySelector('.to-top');
+  if (!btn) return;
+  var onScroll = function () {
+    btn.classList.toggle('is-visible', window.scrollY > 480);
+  };
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { onScroll(); ticking = false; });
+  }, { passive: true });
+  onScroll();
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>网站日志怎么看：每周十分钟能发现哪些问题 | 王经理</title>
+<meta name="description" content="网站日志值得每周查看吗？本文讲清重点看登录失败、异常 404、成片 5xx 错误、数据库慢查询和陌生文件访问记录，如何在故障发生前发现暴力破解、死链、程序缺陷与入侵征兆。">
+<link rel="canonical" href="https://wangmanager.com/site-ops/ops-log-reading/">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<link rel="alternate" hreflang="zh-CN" href="https://wangmanager.com/site-ops/ops-log-reading/">
+<link rel="alternate" hreflang="x-default" href="https://wangmanager.com/site-ops/ops-log-reading/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="王经理 · 定制开发">
+<meta property="og:title" content="网站日志怎么看：每周十分钟能发现哪些问题 | 王经理">
+<meta property="og:description" content="网站日志值得每周查看吗？本文讲清重点看登录失败、异常 404、成片 5xx 错误、数据库慢查询和陌生文件访问记录，如何在故障发生前发现暴力破解、死链、程序缺陷与入侵征兆。">
+<meta property="og:url" content="https://wangmanager.com/site-ops/ops-log-reading/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://wangmanager.com/media/site-ops/ops-log-reading.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="754">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="网站日志怎么看：每周十分钟能发现哪些问题 | 王经理">
+<meta name="twitter:description" content="网站日志值得每周查看吗？本文讲清重点看登录失败、异常 404、成片 5xx 错误、数据库慢查询和陌生文件访问记录，如何在故障发生前发现暴力破解、死链、程序缺陷与入侵征兆。">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="icon" type="image/svg+xml" href="/media/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32.png">
+<link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
+<meta property="article:published_time" content="2026-11-23T09:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-25T02:06:48.287Z">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://wangmanager.com/#person","name":"王经理","jobTitle":"15 年程序员 · 定制开发服务商","description":"王经理，15 年程序员，主营 WordPress 外贸网站、AI 应用与企业知识库定制开发，同时撰写「王经理讲GEO」专栏，讲中小企业怎么让 AI 读懂自己的品牌。"},{"@type":"Organization","@id":"https://wangmanager.com/#organization","name":"王经理 · 定制开发","url":"https://wangmanager.com/","email":"827332186@qq.com","founder":{"@id":"https://wangmanager.com/#person"},"knowsAbout":["WordPress 外贸网站定制开发","AI 应用定制开发","企业 AI 知识库搭建","GEO 与 AI 搜索优化","网站与 AI 系统运维优化","服务器运维与网站安全加固"]},{"@type":"Service","@id":"https://wangmanager.com/#service-1","name":"WordPress 外贸网站定制开发","description":"15 年经验，围绕产品展示、用户信任、询盘转化和后期运营，打造稳定、安全、易维护的外贸网站。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"WordPress 外贸网站定制开发","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-2","name":"AI 应用定制开发","description":"结合企业现有网站、产品资料和业务流程，开发可落地的 AI 应用，不做只能演示的概念品。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"AI 应用定制开发","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-3","name":"企业 AI 知识库搭建","description":"把分散的产品手册、技术文档和 FAQ 整理成结构清晰、可检索、可回答的知识库，并接入 AI 助手。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"企业 AI 知识库搭建","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-4","name":"GEO 与 AI 搜索优化","description":"让企业真实、权威、结构清晰的信息更容易被 AI 理解和引用——不承诺“保证被 AI 推荐”。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"GEO 与 AI 搜索优化","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-5","name":"网站与 AI 系统运维优化","description":"应用与内容层运维：程序更新、AI 问答与知识库维护、故障处理和数据备份。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"网站与 AI 系统运维优化","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"Service","@id":"https://wangmanager.com/#service-6","name":"服务器运维与网站安全加固","description":"从服务器环境搭建、宝塔面板运维，到宕机排查、防火墙加固、AI 爬虫策略与性能调优——让网站的底座稳、安全、快。","provider":{"@id":"https://wangmanager.com/#organization"},"serviceType":"服务器运维与网站安全加固","areaServed":"CN","audience":"中小企业、外贸企业"},{"@type":"WebSite","@id":"https://wangmanager.com/#website","url":"https://wangmanager.com/","name":"王经理 · 定制开发","description":"WordPress 外贸站、SEO 优化、静态独立站、GEO 品牌知识库一站式定制开发，15 年程序员按需求交付，让企业在搜索引擎和 AI 回答里被找到、被推荐。","publisher":{"@id":"https://wangmanager.com/#organization"},"inLanguage":["zh-CN"]},{"@type":"WebPage","@id":"https://wangmanager.com/site-ops/ops-log-reading/","url":"https://wangmanager.com/site-ops/ops-log-reading/","name":"网站日志怎么看：每周十分钟能发现哪些问题 | 王经理","description":"网站日志值得每周查看吗？本文讲清重点看登录失败、异常 404、成片 5xx 错误、数据库慢查询和陌生文件访问记录，如何在故障发生前发现暴力破解、死链、程序缺陷与入侵征兆。","isPartOf":{"@id":"https://wangmanager.com/#website"},"inLanguage":"zh-CN"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://wangmanager.com/"},{"@type":"ListItem","position":2,"name":"网站运维实战","item":"https://wangmanager.com/site-ops/"},{"@type":"ListItem","position":3,"name":"日志里藏着什么，值得每周看一眼","item":"https://wangmanager.com/site-ops/ops-log-reading/"}]},{"@type":"BlogPosting","@id":"https://wangmanager.com/site-ops/ops-log-reading/#article","headline":"日志里藏着什么，值得每周看一眼","description":"站被挂马前两周，日志里就有陌生 PHP 文件被访问的记录。我每周一花十分钟扫日志，盯的是登录失败、404、5xx 和这些「跟平时不一样」的东西。","image":["https://wangmanager.com/media/site-ops/ops-log-reading.svg"],"datePublished":"2026-11-23T09:00:00.000Z","dateModified":"2026-11-25T02:06:48.287Z","author":{"@type":"Person","@id":"https://wangmanager.com/#person","name":"王经理"},"publisher":{"@id":"https://wangmanager.com/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://wangmanager.com/site-ops/ops-log-reading/"},"inLanguage":"zh-CN","url":"https://wangmanager.com/site-ops/ops-log-reading/","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".prose > p:first-of-type"]}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="top-banner">
+  <div class="wrap top-banner-inner">
+    <span>帮外贸和中小企业，在 AI 时代多拿客户、多接单</span>
+  </div>
+</div>
+<header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">王</span>
+      <span class="brand-text">
+        <strong>王经理 · 定制开发</strong>
+<em>定制开发 · AI 应用 · GEO</em>      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="/">首页</a>
+        </li>
+        <li class="nav-item has-sub">
+          <a class="nav-link" href="/wordpress-development/">服务</a>
+          <ul class="subnav">
+            <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+            <li><a href="/ai-applications/">AI 应用定制开发</a></li>
+            <li><a href="/ai-knowledge-base/">企业 AI 知识库搭建</a></li>
+            <li><a href="/geo-ai-search/">GEO 与 AI 搜索优化</a></li>
+            <li><a href="/website-ai-operations/">网站与 AI 系统运维优化</a></li>
+            <li><a href="/server-ops-security/">服务器运维与网站安全加固</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/geo/">王经理讲GEO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/client-cases/">客户案例</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">关于王经理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact/">联系王经理</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      <a class="btn btn-sm" href="/contact/">聊聊需求</a>
+      <label class="nav-btn" for="nav-toggle" aria-label="打开 / 收起菜单" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </div>
+</header>
+<main id="main">
+<header class="content-head">
+  <div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol>
+    <li>
+      <a href="/">首页</a>
+    </li>
+    <li>
+      <a href="/site-ops/">网站运维实战</a>
+    </li>
+    <li>
+      <span aria-current="page">日志里藏着什么，值得每周看一眼</span>
+    </li>
+  </ol>
+</nav>
+    <h1>日志里藏着什么，值得每周看一眼</h1>
+<p class="lead">站被挂马前两周，日志里就有陌生 PHP 文件被访问的记录。我每周一花十分钟扫日志，盯的是登录失败、404、5xx 和这些「跟平时不一样」的东西。</p>    <div class="content-meta">
+      <span>发布于 <time datetime="2026-11-23T09:00:00.000Z">2026-11-23</time></span>
+      <span>更新于 <time datetime="2026-11-25T02:06:48.287Z">2026-11-25</time></span>
+<span>王经理</span><span>网站运维实战</span>    </div>
+  </div>
+</header>
+
+<div class="content-body">
+  <div class="wrap">
+    <figure class="cover">
+      <img src="/media/site-ops/ops-log-reading.svg" alt="日志里藏着什么，值得每周看一眼" width="1400" height="800">
+    </figure>
+
+    <div class="prose">
+      <p>很多人从不看日志，等到站出问题了才翻，结果发现信号早就在里面躺了半个月。日志不是给故障收尸用的，它是提前告诉你「有东西不对」的那个东西。我没让它多复杂，每周一早上花十分钟扫一眼，看趋势和异常，不通读全文。</p>
+<p>我最先看登录失败记录。如果一周里后台登录失败几百上千次，说明有人在暴力扫你的后台。我有个客户，日志里一周几千次失败尝试，还好密码设得够复杂没被撞开。后来我给他做了两件事：改掉默认的后台登录地址、限制同一 IP 的登录次数，第二天这种记录就基本没了。不看日志，你可能几个月都不知道有人在敲你的门。</p>
+<figure class="article-fig"><img src="/media/infographics/ops-log-reading.svg" alt="服务器日志每周检查清单图，覆盖登录失败、404、5xx 错误与慢查询四类信号。" width="1400" height="800" loading="lazy" decoding="async"><figcaption>信号在里面躺了半个月才发现，太常见。</figcaption></figure>
+<p>再看 404。突然多起来的 404，两种可能：一是你改了文章或产品的网址，没做跳转，老链接全断了，搜索引擎抓过来吃一鼻子灰；二是有人在扫漏洞路径，挨个试你的目录。这两种都要处理，但方向完全不同，日志能帮你分清。我有个客户改版后发现 404 暴涨，补上几组 301 跳转，两周内就恢复了。</p>
+<p>5xx 错误也值得盯。偶尔一两条是正常波动，成片出现就是程序在报警。我有个客户的站，日志里每天固定时间冒出一批 500，查下来是定时同步任务里的一段代码有 bug。修好之后，顺带把那个时间段的服务器负载也降下来了。</p>
+<p>还有慢查询。数据库哪条语句跑得慢，日志里记得清清楚楚。这是我优化站速度最直接的线索——不用猜，照着它改就行。有次我照着日志给一张产品表加了个索引，页面响应直接从一秒多降到两百毫秒。</p>
+<p>最值得说的一次，是我从日志里发现有个陌生的 PHP 文件被频繁访问，文件是我不认识的。顺着查下去，是被人传了木马进去，用来发垃圾页面。那时候站点还没被挂跳转，从外面看一切正常。早发现两周处理掉，省了后面一场大麻烦。</p>
+<p>另外提醒一句：日志会占磁盘，别让它无限攒着。我一般设成保留三十天，老的自动清掉。前面讲过磁盘塞满导致 MySQL 停掉的案例，一半就是日志没清。看日志和清日志要一起做，只看不清，迟早把自己坑了。还有，后台登录失败如果集中在某个时间段，基本可以断定是脚本在跑——人不会一秒试十几次密码，认准这个特征处理起来就快。真撞上这种脚本，先把后台登录地址改掉，比改密码管用。</p>
+<p>日志不难读，难的是养成看的习惯。你不用懂每一行，盯住「跟平时不一样」的地方就够了。真懒得看，至少让主机商或者运维把异常报表每周发你一份。</p>
+    </div>
+
+
+
+
+
+    <section class="related">
+      <h2>继续读</h2>
+      <ul class="plain-list">
+        <li><a href="/geo-basics/what-is-geo/">什么是 GEO？用张老板的例子讲明白</a></li>
+        <li><a href="/geo-basics/what-is-brand-knowledge-base/">品牌知识库是什么？为什么比官网更重要</a></li>
+        <li><a href="/how-ai-answers/how-ai-knows-your-brand/">AI 是怎么「认识」一个品牌的？底层逻辑一次讲清</a></li>
+        <li><a href="/how-ai-answers/no-website-ai-view/">传统企业没有独立站，AI 会怎么看你？</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">王</span>
+          王经理 · 定制开发
+        </p>
+        <p class="footer-about">
+WordPress 外贸站、SEO 优化、静态独立站、GEO 品牌知识库一站式定制开发，15 年程序员按需求交付，让企业在搜索引擎和 AI 回答里被找到、被推荐。        </p>
+      </div>
+
+      <div class="footer-col">
+        <h2>快速导航</h2>
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/wordpress-development/">服务</a></li>
+          <li><a href="/geo/">王经理讲GEO</a></li>
+          <li><a href="/client-cases/">客户案例</a></li>
+          <li><a href="/about/">关于王经理</a></li>
+          <li><a href="/contact/">联系王经理</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>联系我们</h2>
+        <ul>
+<li><a href="mailto:827332186@qq.com">827332186@qq.com</a></li>        </ul>
+        <div class="footer-wechat">
+          <span class="footer-wechat-frame">
+            <img src="/media/contact/wechat-qr.png" alt="王经理微信二维码，扫码咨询网站定制、AI 应用与知识库搭建" width="72" height="72" loading="lazy">
+          </span>
+          <span class="footer-wechat-text">微信扫码添加<br>备注来意更快通过</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h2>我们的服务</h2>
+        <ul>
+          <li><a href="/wordpress-development/">WordPress 外贸网站定制开发</a></li>
+          <li><a href="/ai-applications/">AI 应用定制开发</a></li>
+          <li><a href="/ai-knowledge-base/">企业 AI 知识库搭建</a></li>
+          <li><a href="/geo-ai-search/">GEO 与 AI 搜索优化</a></li>
+          <li><a href="/website-ai-operations/">网站与 AI 系统运维优化</a></li>
+          <li><a href="/server-ops-security/">服务器运维与网站安全加固</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-meta-links">
+      <a href="/sitemap.html">网站地图</a><span aria-hidden="true"> · </span><a href="/llms.txt">给 AI 的站点说明</a>
+    </p>
+    <p class="footer-copyright">© 2026 王经理 · 定制开发. 保留所有权利</p>
+  </div>
+</footer>
+<button class="to-top" type="button" aria-label="返回顶部" title="返回顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 20V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script>
+(function () {
+  var btn = document.querySelector('.to-top');
+  if (!btn) return;
+  var onScroll = function () {
+    btn.classList.toggle('is-visible', window.scrollY > 480);
+  };
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { onScroll(); ticking = false; });
+  }, { passive: true });
+  onScroll();
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>
