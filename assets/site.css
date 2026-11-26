@@ -317,6 +317,15 @@ ol {
   display: none;
 }
 
+/* 子菜单折叠开关：桌面端用 hover，移动端用 checkbox */
+.sub-toggle {
+  display: none;
+}
+
+.nav-link.sub-toggle-btn {
+  display: none;
+}
+
 .nav-btn {
   display: none;
   flex-direction: column;
@@ -446,6 +455,11 @@ ol {
   display: flex;
   align-items: center;
   gap: 14px;
+}
+
+/* 移动端把 CTA 收进展开菜单，默认不显示 */
+.nav-cta-mobile {
+  display: none;
 }
 
 .langs {
@@ -789,12 +803,14 @@ ol {
 
 /* ---------------------------------------------------------------- 区块通用 */
 
+/* CHG-124：原用 padding 简写会把 .wrap 的左右 28px 内边距重置为 0，
+   导致 .wrap.section 页面（网站地图、栏目页、404）内容贴边被裁；改用 padding-block 只管上下。 */
 .section {
-  padding: clamp(52px, 7vw, 92px) 0;
+  padding-block: clamp(52px, 7vw, 92px);
 }
 
 .section.tight {
-  padding: clamp(40px, 5vw, 64px) 0;
+  padding-block: clamp(40px, 5vw, 64px);
 }
 
 .section.soft {
@@ -2617,12 +2633,6 @@ a.post-tag:hover {
   line-height: 1.35;
 }
 
-.case-client {
-  margin: 8px 0 0;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
 .case-section {
   margin-bottom: 18px;
 }
@@ -2765,16 +2775,18 @@ a.post-tag:hover {
 }
 
 @media (max-width: 900px) {
+  /* 品牌与汉堡按钮始终同一行，不因屏宽不足被挤到下一行 */
   .header-inner {
-    flex-wrap: wrap;
-    gap: 12px 20px;
-    padding: 16px 0;
+    flex-wrap: nowrap;
+    gap: 14px;
+    padding: 14px 0;
     min-height: 0;
   }
 
   /* 头部元素整体放大一号，缓解局促感 */
   .brand {
-    gap: 12px;
+    flex: 1 1 auto;
+    gap: 10px;
   }
 
   .brand img {
@@ -2814,13 +2826,19 @@ a.post-tag:hover {
     display: none;
   }
 
-  /* 移动端菜单默认收起，点汉堡按钮展开 */
+  /* 菜单改为绝对定位的下拉层：展开时不挤压正文，也不把按钮顶下去 */
   .main-nav {
-    order: 3;
-    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    width: auto;
     margin-left: 0;
+    padding: 8px 20px 14px;
     border-top: 1px solid var(--line);
-    padding-top: 6px;
+    background: #fff;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
     display: none;
   }
 
@@ -2829,27 +2847,73 @@ a.post-tag:hover {
   }
 
   .header-right {
-    margin-left: auto;
+    flex: 0 0 auto;
+    margin-left: 0;
     gap: 10px;
   }
 
+  /* 顶级菜单做成实心胶囊，子菜单缩进+引导线，层级一眼可辨 */
   .nav-list {
     flex-wrap: wrap;
-    gap: 2px;
+    gap: 6px 8px;
   }
 
   .nav-link {
-    padding: 8px 10px;
-    font-size: 0.9rem;
+    padding: 8px 12px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--soft);
+    border: 1px solid var(--line);
   }
 
-  /* 触屏没有 hover：二级菜单直接展开成缩进小字，不能藏起来 */
+  .nav-link:hover {
+    color: var(--accent-dark);
+    background: var(--accent-soft);
+  }
+
+  .nav-link[aria-current="page"] {
+    color: var(--accent-dark);
+    background: var(--accent-soft);
+    border-color: var(--accent-soft);
+  }
+
+  /* 触屏没有 hover：点顶级项展开/收起子菜单 */
   .nav-item.has-sub {
     width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-link.sub-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .nav-link.sub-fallback-link {
+    display: none;
   }
 
   .nav-item.has-sub > .nav-link::after {
-    display: none;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-left: 8px;
+    margin-bottom: 2px;
+    opacity: 0.55;
+    transition: transform 0.18s ease;
+  }
+
+  .sub-toggle:checked ~ .sub-toggle-btn {
+    color: var(--accent-dark);
+    background: var(--accent-soft);
+    border-color: var(--accent-soft);
+  }
+
+  .sub-toggle:checked ~ .sub-toggle-btn::after {
+    transform: rotate(225deg);
   }
 
   .subnav {
@@ -2857,21 +2921,36 @@ a.post-tag:hover {
     opacity: 1;
     visibility: visible;
     transform: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 14px;
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 2px;
     min-width: 0;
+    margin: 8px 0 0 12px;
+    padding: 2px 0 2px 14px;
     border: 0;
+    border-left: 2px solid var(--accent-soft);
     box-shadow: none;
     background: transparent;
-    padding: 0 0 8px 12px;
+  }
+
+  .sub-toggle:checked ~ .subnav {
+    display: grid;
   }
 
   .subnav a {
-    padding: 4px 8px;
-    font-size: 0.86rem;
+    padding: 5px 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
     color: var(--muted);
     background: transparent;
+    border-radius: 6px;
+    white-space: normal;
+  }
+
+  .subnav a:hover,
+  .subnav a[aria-current="page"] {
+    color: var(--accent-dark);
+    background: var(--accent-soft);
   }
 
   /* 杂志式版式在中屏改为两栏，避免中文标题挤成四行 */
@@ -2933,6 +3012,102 @@ a.post-tag:hover {
 
   .hero {
     padding-top: 44px;
+  }
+
+  /* 手机端大标题缩放：避免“把网站和 AI 系统，真正 / 用起来”头重脚轻 */
+  .hero h1,
+  .hero-title {
+    font-size: clamp(1.5rem, 6.4vw, 1.95rem);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .hero-lead {
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  /* 内页大标题与正文同比例缩放，避免“标题很大、正文很小”的失衡 */
+  h1 {
+    font-size: clamp(1.5rem, 6.4vw, 1.95rem);
+    line-height: 1.25;
+  }
+
+  .content-head {
+    padding: 32px 0 24px;
+  }
+
+  .content-head .crumbs {
+    margin-bottom: 16px;
+  }
+
+  .content-head .crumbs ol {
+    font-size: 0.82rem;
+  }
+
+  .content-head h1 {
+    font-size: clamp(1.5rem, 6.4vw, 1.95rem);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .content-head .lead {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    margin-bottom: 1.2em;
+  }
+
+  .content-meta {
+    font-size: 0.82rem;
+  }
+
+  .content-meta span + span::before {
+    margin: 0 8px;
+  }
+
+  .page-hero .lead {
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .page-hero .crumbs {
+    margin-bottom: 16px;
+  }
+
+  /* 深色 CTA 模块（7 个服务/案例页共用）：桌面字号直接搬到手机上偏大，
+     这里整体收一档，让标题、说明和按钮与正文保持同一比例。 */
+  .blk-hero-text {
+    padding: 20px;
+  }
+
+  .blk-hero h2 {
+    font-size: clamp(1.15rem, 5.4vw, 1.4rem);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin-bottom: 10px;
+  }
+
+  .blk-hero .lead {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+
+  .blk-hero .btn {
+    font-size: 0.88rem;
+    padding: 0.72em 1.35em;
+  }
+
+  .prose {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .prose > p:first-of-type {
+    font-size: 1.02rem;
   }
 
   /* 1080px 断点给 ul 设了两列，这里必须覆盖 ul 本身才算真的收回单列 */
@@ -3082,4 +3257,267 @@ a.post-tag:hover {
     width: 15px;
     height: 15px;
   }
+}
+
+/* ---------------------------------------------------------------- 社媒账号块 */
+.blk-social-lead {
+  color: var(--muted);
+  max-width: 720px;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .social-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .social-grid { grid-template-columns: 1fr; }
+}
+
+/* 窄屏：CTA 收进展开菜单，保证品牌与汉堡按钮始终同处一行 */
+@media (max-width: 600px) {
+  .header-right .btn.btn-sm {
+    display: none;
+  }
+
+  .nav-cta-mobile {
+    display: block;
+    padding: 10px 10px 2px;
+  }
+
+  .nav-cta-mobile .btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .brand-mark,
+  .brand img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text strong {
+    font-size: 1rem;
+  }
+}
+
+/* 超窄屏再收一档，避免标题在「系统」「外贸」中间断行 */
+@media (max-width: 360px) {
+  h1,
+  .hero h1,
+  .hero-title,
+  .content-head h1 {
+    font-size: 1.25rem;
+  }
+
+  .blk-hero-text {
+    padding: 18px;
+  }
+
+  .blk-hero h2 {
+    font-size: 1.1rem;
+  }
+
+  .blk-hero .lead {
+    font-size: 0.9rem;
+  }
+}
+
+.social-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 24px 14px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+a.social-tile:hover {
+  border-color: transparent;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.social-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 8px;
+}
+
+.social-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.social-qr {
+  display: block;
+  width: 160px;
+  height: 160px;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.social-qr img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.social-name {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.social-handle {
+  color: var(--muted);
+  font-size: 0.85rem;
+  word-break: break-all;
+}
+
+.social-cta {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
+/* 客户案例分类标题 */
+.case-category {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 34px 0 14px;
+}
+.case-category:first-child { margin-top: 0; }
+.case-category span {
+  flex: none;
+  padding: 7px 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent-dark);
+  border-radius: 999px;
+}
+.case-category::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* ------------------------------------------------ 页脚社媒二维码（CHG-125） */
+/* 数据复用关于页 social-links 区块；微信码仍在「联系我们」列，避免重复。 */
+.footer-social {
+  padding: 30px 0 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-social h2 {
+  margin: 0 0 20px;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  opacity: 0.72;
+}
+
+/* 桌面 7 个平台一行；窄屏自动换行，最后一行整体居中 */
+.footer-social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.footer-social-tile {
+  /* 7 个平台同一行；小红书二维码已在源图上居中，不需要靠换行处理 */
+  flex: 0 1 calc((100% - 6 * 16px) / 7);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 14px 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.72);
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+a.footer-social-tile:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+}
+
+.footer-social-qr {
+  display: block;
+  width: 84px;
+  height: 84px;
+  padding: 5px;
+  background: #fff;
+  border-radius: 8px;
+  line-height: 0;
+}
+
+.footer-social-qr img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.footer-social-name {
+  margin-top: 4px;
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.footer-social-handle {
+  font-size: 0.74rem;
+  line-height: 1.35;
+  word-break: break-all;
+  opacity: 0.65;
+}
+
+@media (max-width: 1080px) {
+  .footer-social-grid { gap: 14px; }
+  .footer-social-tile { flex-basis: calc((100% - 3 * 14px) / 4); }
+}
+
+@media (max-width: 600px) {
+  .footer-social { padding: 26px 0 24px; }
+  .footer-social-grid { gap: 12px; }
+  .footer-social-tile { flex-basis: calc((100% - 12px) / 2); }
+  .footer-social-qr { width: 96px; height: 96px; }
+}
+
+@media (max-width: 360px) {
+  .footer-social-grid { gap: 10px; }
+  .footer-social-tile { flex-basis: calc((100% - 10px) / 2); padding: 12px 6px 10px; }
+  .footer-social-qr { width: 84px; height: 84px; }
+  .footer-social-handle { font-size: 0.7rem; }
 }
